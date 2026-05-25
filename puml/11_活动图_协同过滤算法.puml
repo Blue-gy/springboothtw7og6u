@@ -1,0 +1,52 @@
+@startuml 协同过滤算法活动图
+skinparam backgroundColor #FEFEFE
+skinparam defaultFontName Microsoft YaHei
+skinparam defaultFontSize 11
+
+title 体育场馆管理系统 - 协同过滤推荐算法活动图
+
+start
+:获取目标用户收藏数据;
+:获取所有用户收藏数据;
+
+:构建用户-物品评分矩阵;
+note right
+  userRatings: Map<userId, Map<itemId, rating>>
+end note
+
+:构建物品-用户倒排表;
+note right
+  itemUsers: Map<itemId, List<userId>>
+end note
+
+:构建用户索引映射;
+:初始化稀疏矩阵;
+
+while (遍历每个物品) is (继续)
+  :获取收藏该物品的用户列表;
+  while (遍历用户列表中的每对用户) is (继续)
+    :稀疏矩阵对应位置+1;
+  endwhile (完成)
+endwhile (完成)
+
+:计算目标用户与其他用户的相似度;
+note right
+  余弦相似性: sim(u1,u2) = |I(u1)∩I(u2)| / √(|I(u1)|×|I(u2)|)
+end note
+
+:按相似度降序排序;
+:选择Top-K相似用户;
+
+:获取相似用户收藏的物品;
+:过滤目标用户已收藏的物品;
+
+if (推荐数量 >= N?) then (是)
+  :返回推荐列表;
+else (否)
+  :补充最新课程;
+  :返回推荐列表;
+endif
+
+stop
+
+@enduml

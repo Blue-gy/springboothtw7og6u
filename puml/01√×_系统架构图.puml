@@ -1,0 +1,54 @@
+@startuml 系统架构图
+skinparam backgroundColor #FEFEFE
+skinparam defaultFontName Microsoft YaHei
+skinparam defaultFontSize 12
+
+title 体育场馆管理系统 - 系统架构图
+
+package "前端层" <<Rectangle>> #E3F2FD {
+    [管理后台前端\nVue 2 + Element UI\n端口: 8081] as AdminFront
+    [用户前端\nVue 2 + Element UI\n端口: 8082] as UserFront
+}
+
+package "网关层" <<Rectangle>> #FFF3E0 {
+    [Spring Boot\n端口: 8080\n上下文: /springboothtw7og6u] as SpringBoot
+    [AuthorizationInterceptor\nToken认证 + CORS处理] as Interceptor
+}
+
+package "业务层" <<Rectangle>> #E8F5E9 {
+    [Controller层\n24个Controller] as Controller
+    [Service层\n业务逻辑] as Service
+    [DAO层\n数据访问] as DAO
+}
+
+package "工具层" <<Rectangle>> #F3E5F5 {
+    [UserBasedCollaborativeFiltering\n协同过滤推荐算法] as CF
+    [BaiduUtil\n百度AI服务] as BaiduAI
+    [EncryptUtil\n加密工具] as Encrypt
+    [SQLFilter\nSQL注入防护] as SQLFilter
+}
+
+package "数据层" <<Rectangle>> #FFEBEE {
+    [MySQL 5.7\n25张表] as MySQL
+    [MyBatis-Plus\nORM框架] as MyBatisPlus
+}
+
+package "外部服务" <<Rectangle>> #E0F7FA {
+    [百度AI开放平台\nOCR/图像识别] as BaiduAPI
+}
+
+AdminFront --> SpringBoot : HTTP/Axios
+UserFront --> SpringBoot : HTTP/Axios
+SpringBoot --> Interceptor
+Interceptor --> Controller
+Controller --> Service
+Service --> DAO
+Service --> CF : 推荐算法
+Service --> BaiduAI : AI能力
+Controller --> Encrypt : 加密
+Controller --> SQLFilter : 安全防护
+DAO --> MyBatisPlus
+MyBatisPlus --> MySQL
+BaiduAI --> BaiduAPI : HTTP调用
+
+@enduml

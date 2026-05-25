@@ -1,0 +1,28 @@
+@startuml 用户登录活动图
+skinparam backgroundColor #FEFEFE
+skinparam defaultFontName Microsoft YaHei
+skinparam defaultFontSize 12
+
+title 体育场馆管理系统 - 用户登录活动图
+
+start
+:输入账号密码;
+:接收登录请求;
+:查询用户信息;
+
+if (用户存在?) then (是)
+  if (密码正确?) then (是)
+    :生成Token;
+    :保存到数据库;
+    :返回登录成功;
+    stop
+  else (否)
+    :返回密码错误;
+    stop
+  endif
+else (否)
+  :返回用户不存在;
+  stop
+endif
+
+@enduml

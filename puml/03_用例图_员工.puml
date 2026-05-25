@@ -1,0 +1,56 @@
+@startuml 员工用例图
+skinparam backgroundColor #FEFEFE
+skinparam defaultFontName Microsoft YaHei
+skinparam defaultFontSize 12
+
+title 体育场馆管理系统 - 员工用例图
+
+left to right direction
+
+actor "员工" as Employee
+
+rectangle "体育场馆管理系统" {
+    
+    package "账户管理" {
+        usecase "员工登录" as UC1
+        usecase "退出登录" as UC2
+        usecase "修改个人信息" as UC3
+        usecase "修改密码" as UC4
+    }
+    
+    package "场地维修" {
+        usecase "查看场地维修任务" as UC5
+        usecase "提交维修记录" as UC6
+        usecase "更新维修状态" as UC7
+    }
+    
+    package "设备维修" {
+        usecase "查看设备维修任务" as UC8
+        usecase "提交维修记录" as UC9
+        usecase "更新维修状态" as UC10
+    }
+    
+    package "信息查看" {
+        usecase "查看场地信息" as UC11
+        usecase "查看设备信息" as UC12
+        usecase "查看课程信息" as UC13
+        usecase "查看公告信息" as UC14
+    }
+}
+
+Employee --> UC1
+Employee --> UC2
+Employee --> UC3
+Employee --> UC4
+Employee --> UC5
+Employee --> UC6
+Employee --> UC7
+Employee --> UC8
+Employee --> UC9
+Employee --> UC10
+Employee --> UC11
+Employee --> UC12
+Employee --> UC13
+Employee --> UC14
+
+@enduml

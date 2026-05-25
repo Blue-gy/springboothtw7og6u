@@ -1,0 +1,91 @@
+@startuml 设备租赁模块类图
+skinparam backgroundColor #FEFEFE
+skinparam defaultFontName Microsoft YaHei
+skinparam defaultFontSize 11
+skinparam classAttributeIconSize 0
+
+title 设备租赁模块类图
+
+class ShebeizulinEntity {
+    - Long id
+    - String shebeimingcheng
+    - Integer kucunshuliang
+    - String shebeitupian
+    - String shebeijianjie
+    - BigDecimal zulinjiage
+    - Integer discussnum
+    - Integer storeupnum
+    + get/set methods
+}
+
+class ZulinjiluEntity {
+    - Long id
+    - String shebeimingcheng
+    - Integer kucunshuliang
+    - BigDecimal zulinjiage
+    - BigDecimal zulinjine
+    - Date zulinshijian
+    - String yonghuzhanghao
+    - String xingming
+    - String sfsh
+    - String shhf
+    + get/set methods
+}
+
+class ZulinguihaiEntity {
+    - Long id
+    - String shebeimingcheng
+    - Integer kucunshuliang
+    - BigDecimal zulinjine
+    - Date zulinshijian
+    - String yonghuzhanghao
+    - Date guihaishijian
+    - String sfsh
+    - String shhf
+    + get/set methods
+}
+
+class ShebeiweixiuEntity {
+    - Long id
+    - String shebeimingcheng
+    - String weixiuneirong
+    - String yuangongzhanghao
+    - String yuangongxingming
+    - Date weixiushijian
+    - String weixiuzhuangtai
+    + get/set methods
+}
+
+class ZulinjiluController {
+    + page(params): R
+    + save(entity): R
+    + update(entity): R
+    + delete(ids): R
+    + shBatch(ids, sfsh, shhf): R
+}
+
+class ZulinguihaiController {
+    + page(params): R
+    + save(entity): R
+    + update(entity): R
+    + delete(ids): R
+    + shBatch(ids, sfsh, shhf): R
+}
+
+class ShebeiweixiuController {
+    + page(params): R
+    + save(entity): R
+    + update(entity): R
+    + delete(ids): R
+}
+
+ShebeizulinEntity ||--o{ ZulinjiluEntity : "1:N 租赁"
+ShebeizulinEntity ||--o{ ZulinguihaiEntity : "1:N 归还"
+ShebeizulinEntity ||--o{ ShebeiweixiuEntity : "1:N 维修"
+ZulinjiluEntity --> ZulinguihaiEntity : "租赁->归还"
+
+ZulinjiluController --> ZulinjiluEntity
+ZulinguihaiController --> ZulinguihaiEntity
+ShebeiweixiuController --> ShebeiweixiuEntity
+
+@enduml

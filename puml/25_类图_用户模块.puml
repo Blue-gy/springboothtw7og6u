@@ -1,0 +1,76 @@
+@startuml 用户模块类图
+skinparam backgroundColor #FEFEFE
+skinparam defaultFontName Microsoft YaHei
+skinparam defaultFontSize 11
+skinparam classAttributeIconSize 0
+
+title 用户模块类图
+
+class HuiyuanEntity {
+    - Long id
+    - String yonghuzhanghao
+    - String xingming
+    - String mima
+    - String xingbie
+    - String shouji
+    - String touxiang
+    - Date addtime
+    + get/set methods
+}
+
+class HuiyuanController {
+    + login(params): R
+    + register(params): R
+    + logout(): R
+    + session(): R
+    + resetPass(params): R
+    + page(params): R
+    + list(params): R
+    + save(entity): R
+    + update(entity): R
+    + delete(ids): R
+}
+
+interface HuiyuanService {
+    + queryPage(params): PageUtils
+    + selectListVO(wrapper): List
+    + selectVO(wrapper): HuiyuanVO
+    + insert(entity): int
+    + update(entity): int
+    + deleteById(id): int
+}
+
+class HuiyuanServiceImpl {
+}
+
+interface HuiyuanDao {
+    + selectListVO(wrapper): List
+    + selectVO(wrapper): HuiyuanVO
+}
+
+class TokenEntity {
+    - Long id
+    - Long userid
+    - String username
+    - String tablename
+    - String role
+    - String token
+    - Date expiratedtime
+    + get/set methods
+}
+
+class TokenService {
+    + generateToken(userId, username, tablename, role): TokenEntity
+    + queryByToken(token): TokenEntity
+}
+
+HuiyuanController --> HuiyuanService
+HuiyuanController --> TokenService
+HuiyuanServiceImpl ..|> HuiyuanService
+HuiyuanServiceImpl --> HuiyuanDao
+HuiyuanDao --|> BaseMapper
+HuiyuanController --> HuiyuanEntity
+HuiyuanService --> HuiyuanEntity
+TokenService --> TokenEntity
+
+@enduml

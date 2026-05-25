@@ -1,0 +1,121 @@
+@startuml 用例图
+skinparam backgroundColor #FEFEFE
+skinparam defaultFontName Microsoft YaHei
+skinparam defaultFontSize 12
+
+title 体育场馆管理系统 - 用例图
+
+left to right direction
+
+actor "管理员" as Admin
+actor "会员" as Member
+actor "员工" as Employee
+
+rectangle "体育场馆管理系统" {
+    
+    package "用户管理" {
+        usecase "会员注册/登录" as UC1
+        usecase "员工登录" as UC2
+        usecase "管理员登录" as UC3
+        usecase "密码重置" as UC4
+        usecase "个人信息管理" as UC5
+    }
+    
+    package "场馆资源管理" {
+        usecase "场地信息管理" as UC6
+        usecase "场地预约" as UC7
+        usecase "场地预约审核" as UC8
+        usecase "场地维修管理" as UC9
+        usecase "设备信息管理" as UC10
+        usecase "设备租赁" as UC11
+        usecase "设备租赁审核" as UC12
+        usecase "设备归还" as UC13
+        usecase "设备维修管理" as UC14
+    }
+    
+    package "课程培训" {
+        usecase "课程信息管理" as UC15
+        usecase "课程预约" as UC16
+        usecase "课程预约审核" as UC17
+        usecase "智能推荐课程" as UC18
+    }
+    
+    package "赛事活动" {
+        usecase "比赛信息管理" as UC19
+        usecase "比赛报名" as UC20
+        usecase "活动信息管理" as UC21
+        usecase "活动报名" as UC22
+    }
+    
+    package "商城系统" {
+        usecase "商品信息管理" as UC23
+        usecase "购物车管理" as UC24
+        usecase "订单管理" as UC25
+        usecase "订单统计" as UC26
+    }
+    
+    package "互动功能" {
+        usecase "收藏管理" as UC27
+        usecase "在线留言" as UC28
+        usecase "公告查看" as UC29
+        usecase "公告管理" as UC30
+        usecase "评论功能" as UC31
+    }
+    
+    package "财务管理" {
+        usecase "财务统计" as UC33
+        usecase "财务报表" as UC34
+    }
+}
+
+' 管理员权限
+Admin --> UC3
+Admin --> UC6
+Admin --> UC8
+Admin --> UC9
+Admin --> UC10
+Admin --> UC12
+Admin --> UC14
+Admin --> UC15
+Admin --> UC17
+Admin --> UC19
+Admin --> UC21
+Admin --> UC23
+Admin --> UC25
+Admin --> UC26
+Admin --> UC29
+Admin --> UC30
+Admin --> UC33
+Admin --> UC34
+
+' 会员权限
+Member --> UC1
+Member --> UC4
+Member --> UC5
+Member --> UC7
+Member --> UC11
+Member --> UC13
+Member --> UC16
+Member --> UC18
+Member --> UC20
+Member --> UC22
+Member --> UC24
+Member --> UC25
+Member --> UC27
+Member --> UC28
+Member --> UC29
+Member --> UC31
+
+' 员工权限
+Employee --> UC2
+Employee --> UC5
+Employee --> UC9
+Employee --> UC14
+
+' 包含关系
+UC18 ..> UC27 : <<include>>
+UC7 ..> UC8 : <<include>>
+UC11 ..> UC12 : <<include>>
+UC16 ..> UC17 : <<include>>
+
+@enduml

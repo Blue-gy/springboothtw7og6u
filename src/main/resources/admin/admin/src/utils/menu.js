@@ -1,0 +1,495 @@
+const menu = {
+    list() {
+        return [{
+            "backMenu": [{
+                "child": [{
+                    "allButtons": ["新增", "查看", "修改", "删除"],
+                    "appFrontIcon": "cuIcon-circle",
+                    "buttons": ["新增", "查看", "修改", "删除"],
+                    "menu": "用户",
+                    "menuJump": "列表",
+                    "tableName": "huiyuan"
+                }], "menu": "用户管理"
+            }, {
+                "child": [{
+                    "allButtons": ["新增", "查看", "修改", "删除"],
+                    "appFrontIcon": "cuIcon-explore",
+                    "buttons": ["新增", "查看", "修改", "删除"],
+                    "menu": "员工",
+                    "menuJump": "列表",
+                    "tableName": "yuangong"
+                }], "menu": "员工管理"
+            }, {
+                "child": [{
+                    "allButtons": ["新增", "查看", "修改", "删除", "查看评论", "场地预约", "场地维修"],
+                    "appFrontIcon": "cuIcon-newshot",
+                    "buttons": ["新增", "查看", "修改", "删除", "查看评论", "场地预约", "场地维修"],
+                    "menu": "场地信息",
+                    "menuJump": "列表",
+                    "tableName": "changdixinxi"
+                }], "menu": "场地信息管理"
+            }, {
+                "child": [{
+                    "allButtons": ["新增", "查看", "修改", "删除", "查看评论", "课程预约"],
+                    "appFrontIcon": "cuIcon-camera",
+                    "buttons": ["新增", "查看", "修改", "删除", "查看评论", "课程预约"],
+                    "menu": "课程信息",
+                    "menuJump": "列表",
+                    "tableName": "kechengxinxi"
+                }], "menu": "课程信息管理"
+            }, {
+                "child": [{
+                    "allButtons": ["新增", "查看", "修改", "删除"],
+                    "appFrontIcon": "cuIcon-newshot",
+                    "buttons": ["新增", "查看", "修改", "删除"],
+                    "menu": "商品分类",
+                    "menuJump": "列表",
+                    "tableName": "shangpinfenlei"
+                }], "menu": "商品分类管理"
+            }, {
+                "child": [{
+                    "allButtons": ["新增", "查看", "修改", "删除", "查看评论"],
+                    "appFrontIcon": "cuIcon-newshot",
+                    "buttons": ["新增", "查看", "修改", "删除", "查看评论"],
+                    "menu": "商品信息",
+                    "menuJump": "列表",
+                    "tableName": "shangpinxinxi"
+                }], "menu": "商品信息管理"
+            }, {
+                "child": [{
+                    "allButtons": ["新增", "查看", "修改", "删除", "查看评论", "设备租赁", "设备维修"],
+                    "appFrontIcon": "cuIcon-taxi",
+                    "buttons": ["新增", "查看", "修改", "删除", "查看评论", "设备租赁", "设备维修"],
+                    "menu": "设备租赁",
+                    "menuJump": "列表",
+                    "tableName": "shebeizulin"
+                }], "menu": "设备租赁管理"
+            }, {
+                "child": [{
+                    "allButtons": ["新增", "查看", "修改", "删除", "查看评论", "报名活动"],
+                    "appFrontIcon": "cuIcon-camera",
+                    "buttons": ["新增", "查看", "修改", "删除", "查看评论", "报名活动"],
+                    "menu": "活动信息",
+                    "menuJump": "列表",
+                    "tableName": "huodongxinxi"
+                }], "menu": "活动信息管理"
+            }, {
+                "child": [{
+                    "allButtons": ["新增", "查看", "修改", "删除", "查看评论", "比赛报名"],
+                    "appFrontIcon": "cuIcon-wenzi",
+                    "buttons": ["新增", "查看", "修改", "删除", "查看评论", "比赛报名"],
+                    "menu": "比赛",
+                    "menuJump": "列表",
+                    "tableName": "bisai"
+                }], "menu": "比赛管理"
+            }, {
+                "child": [{
+                    "allButtons": ["新增", "查看", "修改", "删除", "审核"],
+                    "appFrontIcon": "cuIcon-album",
+                    "buttons": ["新增", "查看", "修改", "删除", "审核"],
+                    "menu": "场地预约",
+                    "menuJump": "列表",
+                    "tableName": "changdiyuyue"
+                }], "menu": "场地预约管理"
+            }, {
+                "child": [{
+                    "allButtons": ["新增", "查看", "修改", "删除", "审核"],
+                    "appFrontIcon": "cuIcon-medal",
+                    "buttons": ["新增", "查看", "修改", "删除", "审核"],
+                    "menu": "课程预约",
+                    "menuJump": "列表",
+                    "tableName": "kechengyuyue"
+                }], "menu": "课程预约管理"
+            }, {
+                "child": [{
+                    "allButtons": ["新增", "查看", "修改", "删除", "审核", "归还"],
+                    "appFrontIcon": "cuIcon-full",
+                    "buttons": ["新增", "查看", "修改", "删除", "审核", "归还"],
+                    "menu": "租赁记录",
+                    "menuJump": "列表",
+                    "tableName": "zulinjilu"
+                }], "menu": "租赁记录管理"
+            }, {
+                "child": [{
+                    "allButtons": ["新增", "查看", "修改", "删除", "审核"],
+                    "appFrontIcon": "cuIcon-addressbook",
+                    "buttons": ["新增", "查看", "修改", "删除", "审核"],
+                    "menu": "报名活动",
+                    "menuJump": "列表",
+                    "tableName": "baominghuodong"
+                }], "menu": "报名活动管理"
+            }, {
+                "child": [{
+                    "allButtons": ["新增", "查看", "修改", "删除", "审核"],
+                    "appFrontIcon": "cuIcon-present",
+                    "buttons": ["新增", "查看", "修改", "删除", "审核"],
+                    "menu": "比赛报名",
+                    "menuJump": "列表",
+                    "tableName": "bisaibaoming"
+                }], "menu": "比赛报名管理"
+            }, {
+                "child": [{
+                    "allButtons": ["新增", "查看", "修改", "删除", "审核"],
+                    "appFrontIcon": "cuIcon-goodsnew",
+                    "buttons": ["新增", "查看", "修改", "删除", "审核"],
+                    "menu": "租赁归还",
+                    "menuJump": "列表",
+                    "tableName": "zulinguihai"
+                }], "menu": "租赁归还管理"
+            }, {
+                "child": [{
+                    "allButtons": ["新增", "查看", "修改", "删除", "维修记录"],
+                    "appFrontIcon": "cuIcon-send",
+                    "buttons": ["新增", "查看", "修改", "删除", "维修记录"],
+                    "menu": "场地维修",
+                    "menuJump": "列表",
+                    "tableName": "changdiweixiu"
+                }], "menu": "场地维修管理"
+            }, {
+                "child": [{
+                    "allButtons": ["新增", "查看", "修改", "删除", "维修记录"],
+                    "appFrontIcon": "cuIcon-medal",
+                    "buttons": ["新增", "查看", "修改", "删除", "维修记录"],
+                    "menu": "设备维修",
+                    "menuJump": "列表",
+                    "tableName": "shebeiweixiu"
+                }], "menu": "设备维修管理"
+            }, {
+                "child": [{
+                    "allButtons": ["新增", "查看", "修改", "删除"],
+                    "appFrontIcon": "cuIcon-send",
+                    "buttons": ["新增", "查看", "修改", "删除"],
+                    "menu": "场地维修记录",
+                    "menuJump": "列表",
+                    "tableName": "changdiweixiujilu"
+                }], "menu": "场地维修记录管理"
+            }, {
+                "child": [{
+                    "allButtons": ["新增", "查看", "修改", "删除"],
+                    "appFrontIcon": "cuIcon-newshot",
+                    "buttons": ["新增", "查看", "修改", "删除"],
+                    "menu": "设备维修记录",
+                    "menuJump": "列表",
+                    "tableName": "shebeiweixiujilu"
+                }], "menu": "设备维修记录管理"
+            }, {
+                "child": [{
+                    "allButtons": ["新增", "查看", "修改", "删除", "日用户消费", "日租赁费用", "日活动收入", "日总收入", "首页总数", "首页统计"],
+                    "appFrontIcon": "cuIcon-copy",
+                    "buttons": ["新增", "查看", "修改", "删除", "首页总数", "首页统计"],
+                    "menu": "财务情况",
+                    "menuJump": "列表",
+                    "tableName": "caiwuqingkuang"
+                }], "menu": "财务情况管理"
+            }, {
+                "child": [{
+                    "allButtons": ["查看", "修改", "回复", "删除"],
+                    "appFrontIcon": "cuIcon-message",
+                    "buttons": ["查看", "修改", "回复", "删除"],
+                    "menu": "在线留言",
+                    "tableName": "messages"
+                }], "menu": "在线留言"
+            }, {
+                "child": [{
+                    "appFrontIcon": "cuIcon-rank",
+                    "buttons": ["查看"],
+                    "menu": "已发货订单",
+                    "tableName": "orders/已发货"
+                }, {
+                    "appFrontIcon": "cuIcon-attentionfavor",
+                    "buttons": ["查看", "核销"],
+                    "menu": "已支付订单",
+                    "tableName": "orders/已支付"
+                }, {
+                    "appFrontIcon": "cuIcon-album",
+                    "buttons": ["查看"],
+                    "menu": "已完成订单",
+                    "tableName": "orders/已完成"
+                }, {
+                    "appFrontIcon": "cuIcon-pic",
+                    "buttons": ["查看"],
+                    "menu": "已取消订单",
+                    "tableName": "orders/已取消"
+                }, {
+                    "appFrontIcon": "cuIcon-goodsnew",
+                    "buttons": ["查看"],
+                    "menu": "已退款订单",
+                    "tableName": "orders/已退款"
+                }, {"appFrontIcon": "cuIcon-goods", "buttons": ["查看"], "menu": "未支付订单", "tableName": "orders/未支付"}],
+                "menu": "订单管理"
+            }
+                , {
+                "child": [{
+                    "allButtons": ["新增", "查看", "修改", "删除"],
+                    "appFrontIcon": "cuIcon-wenzi",
+                    "buttons": ["新增", "查看", "修改", "删除"],
+                    "menu": "轮播图管理",
+                    "tableName": "config"
+                }, {
+                    "allButtons": ["新增", "查看", "修改", "删除"],
+                    "appFrontIcon": "cuIcon-news",
+                    "buttons": ["新增", "查看", "修改", "删除"],
+                    "menu": "公告信息",
+                    "tableName": "news"
+                }, {
+                    "allButtons": ["新增", "查看", "修改", "删除"],
+                    "appFrontIcon": "cuIcon-news",
+                    "buttons": ["新增", "查看", "修改", "删除"],
+                    "menu": "公告信息分类",
+                    "tableName": "newstype"
+                }], "menu": "系统管理"
+            }],
+            "frontMenu": [{
+                "child": [{
+                    "allButtons": ["新增", "查看", "修改", "删除", "查看评论", "场地预约", "场地维修"],
+                    "appFrontIcon": "cuIcon-similar",
+                    "buttons": ["查看", "场地预约"],
+                    "menu": "场地信息列表",
+                    "menuJump": "列表",
+                    "tableName": "changdixinxi"
+                }], "menu": "场地信息模块"
+            }, {
+                "child": [{
+                    "allButtons": ["新增", "查看", "修改", "删除", "查看评论", "课程预约"],
+                    "appFrontIcon": "cuIcon-flashlightopen",
+                    "buttons": ["查看", "课程预约"],
+                    "menu": "课程信息列表",
+                    "menuJump": "列表",
+                    "tableName": "kechengxinxi"
+                }], "menu": "课程信息模块"
+            }, {
+                "child": [{
+                    "allButtons": ["新增", "查看", "修改", "删除", "查看评论", "设备租赁", "设备维修"],
+                    "appFrontIcon": "cuIcon-discover",
+                    "buttons": ["查看", "设备租赁"],
+                    "menu": "设备租赁列表",
+                    "menuJump": "列表",
+                    "tableName": "shebeizulin"
+                }], "menu": "设备租赁模块"
+            }, {
+                "child": [{
+                    "allButtons": ["新增", "查看", "修改", "删除", "查看评论", "报名活动"],
+                    "appFrontIcon": "cuIcon-shop",
+                    "buttons": ["查看", "报名活动"],
+                    "menu": "活动信息列表",
+                    "menuJump": "列表",
+                    "tableName": "huodongxinxi"
+                }], "menu": "活动信息模块"
+            }, {
+                "child": [{
+                    "allButtons": ["新增", "查看", "修改", "删除", "查看评论", "比赛报名"],
+                    "appFrontIcon": "cuIcon-addressbook",
+                    "buttons": ["查看", "比赛报名"],
+                    "menu": "比赛列表",
+                    "menuJump": "列表",
+                    "tableName": "bisai"
+                }], "menu": "比赛模块"
+            }],
+            "hasBackLogin": "是",
+            "hasBackRegister": "否",
+            "hasFrontLogin": "否",
+            "hasFrontRegister": "否",
+            "roleName": "管理员",
+            "tableName": "users"
+        }, {
+            "backMenu": [{
+                "child": [{
+                    "allButtons": ["新增", "查看", "修改", "删除", "审核"],
+                    "appFrontIcon": "cuIcon-album",
+                    "buttons": ["查看"],
+                    "menu": "场地预约",
+                    "menuJump": "列表",
+                    "tableName": "changdiyuyue"
+                }], "menu": "场地预约管理"
+            }, {
+                "child": [{
+                    "allButtons": ["新增", "查看", "修改", "删除", "审核"],
+                    "appFrontIcon": "cuIcon-medal",
+                    "buttons": ["查看"],
+                    "menu": "课程预约",
+                    "menuJump": "列表",
+                    "tableName": "kechengyuyue"
+                }], "menu": "课程预约管理"
+            }, {
+                "child": [{
+                    "allButtons": ["新增", "查看", "修改", "删除", "审核", "归还"],
+                    "appFrontIcon": "cuIcon-full",
+                    "buttons": ["查看", "归还"],
+                    "menu": "租赁记录",
+                    "menuJump": "列表",
+                    "tableName": "zulinjilu"
+                }], "menu": "租赁记录管理"
+            }, {
+                "child": [{
+                    "allButtons": ["新增", "查看", "修改", "删除", "审核"],
+                    "appFrontIcon": "cuIcon-addressbook",
+                    "buttons": ["查看"],
+                    "menu": "报名活动",
+                    "menuJump": "列表",
+                    "tableName": "baominghuodong"
+                }], "menu": "报名活动管理"
+            }, {
+                "child": [{
+                    "allButtons": ["新增", "查看", "修改", "删除", "审核"],
+                    "appFrontIcon": "cuIcon-present",
+                    "buttons": ["查看"],
+                    "menu": "比赛报名",
+                    "menuJump": "列表",
+                    "tableName": "bisaibaoming"
+                }], "menu": "比赛报名管理"
+            }, {
+                "child": [{
+                    "allButtons": ["新增", "查看", "修改", "删除", "审核"],
+                    "appFrontIcon": "cuIcon-goodsnew",
+                    "buttons": ["查看"],
+                    "menu": "租赁归还",
+                    "menuJump": "列表",
+                    "tableName": "zulinguihai"
+                }], "menu": "租赁归还管理"
+            }],
+            "frontMenu": [{
+                "child": [{
+                    "allButtons": ["新增", "查看", "修改", "删除", "查看评论", "场地预约", "场地维修"],
+                    "appFrontIcon": "cuIcon-similar",
+                    "buttons": ["查看", "场地预约"],
+                    "menu": "场地信息列表",
+                    "menuJump": "列表",
+                    "tableName": "changdixinxi"
+                }], "menu": "场地信息模块"
+            }, {
+                "child": [{
+                    "allButtons": ["新增", "查看", "修改", "删除", "查看评论", "课程预约"],
+                    "appFrontIcon": "cuIcon-flashlightopen",
+                    "buttons": ["查看", "课程预约"],
+                    "menu": "课程信息列表",
+                    "menuJump": "列表",
+                    "tableName": "kechengxinxi"
+                }], "menu": "课程信息模块"
+            }, {
+                "child": [{
+                    "allButtons": ["新增", "查看", "修改", "删除", "查看评论", "设备租赁", "设备维修"],
+                    "appFrontIcon": "cuIcon-discover",
+                    "buttons": ["查看", "设备租赁"],
+                    "menu": "设备租赁列表",
+                    "menuJump": "列表",
+                    "tableName": "shebeizulin"
+                }], "menu": "设备租赁模块"
+            }, {
+                "child": [{
+                    "allButtons": ["新增", "查看", "修改", "删除", "查看评论", "报名活动"],
+                    "appFrontIcon": "cuIcon-shop",
+                    "buttons": ["查看", "报名活动"],
+                    "menu": "活动信息列表",
+                    "menuJump": "列表",
+                    "tableName": "huodongxinxi"
+                }], "menu": "活动信息模块"
+            }, {
+                "child": [{
+                    "allButtons": ["新增", "查看", "修改", "删除", "查看评论", "比赛报名"],
+                    "appFrontIcon": "cuIcon-addressbook",
+                    "buttons": ["查看", "比赛报名"],
+                    "menu": "比赛列表",
+                    "menuJump": "列表",
+                    "tableName": "bisai"
+                }], "menu": "比赛模块"
+            }],
+            "hasBackLogin": "否",
+            "hasBackRegister": "否",
+            "hasFrontLogin": "是",
+            "hasFrontRegister": "是",
+            "roleName": "用户",
+            "tableName": "huiyuan"
+        }, {
+            "backMenu": [{
+                "child": [{
+                    "allButtons": ["新增", "查看", "修改", "删除", "维修记录"],
+                    "appFrontIcon": "cuIcon-send",
+                    "buttons": ["查看", "维修记录"],
+                    "menu": "场地维修",
+                    "menuJump": "列表",
+                    "tableName": "changdiweixiu"
+                }], "menu": "场地维修管理"
+            }, {
+                "child": [{
+                    "allButtons": ["新增", "查看", "修改", "删除", "维修记录"],
+                    "appFrontIcon": "cuIcon-medal",
+                    "buttons": ["查看", "维修记录"],
+                    "menu": "设备维修",
+                    "menuJump": "列表",
+                    "tableName": "shebeiweixiu"
+                }], "menu": "设备维修管理"
+            }, {
+                "child": [{
+                    "allButtons": ["新增", "查看", "修改", "删除"],
+                    "appFrontIcon": "cuIcon-send",
+                    "buttons": ["查看"],
+                    "menu": "场地维修记录",
+                    "menuJump": "列表",
+                    "tableName": "changdiweixiujilu"
+                }], "menu": "场地维修记录管理"
+            }, {
+                "child": [{
+                    "allButtons": ["新增", "查看", "修改", "删除"],
+                    "appFrontIcon": "cuIcon-newshot",
+                    "buttons": ["查看"],
+                    "menu": "设备维修记录",
+                    "menuJump": "列表",
+                    "tableName": "shebeiweixiujilu"
+                }], "menu": "设备维修记录管理"
+            }],
+            "frontMenu": [{
+                "child": [{
+                    "allButtons": ["新增", "查看", "修改", "删除", "查看评论", "场地预约", "场地维修"],
+                    "appFrontIcon": "cuIcon-similar",
+                    "buttons": ["查看", "场地预约"],
+                    "menu": "场地信息列表",
+                    "menuJump": "列表",
+                    "tableName": "changdixinxi"
+                }], "menu": "场地信息模块"
+            }, {
+                "child": [{
+                    "allButtons": ["新增", "查看", "修改", "删除", "查看评论", "课程预约"],
+                    "appFrontIcon": "cuIcon-flashlightopen",
+                    "buttons": ["查看", "课程预约"],
+                    "menu": "课程信息列表",
+                    "menuJump": "列表",
+                    "tableName": "kechengxinxi"
+                }], "menu": "课程信息模块"
+            }, {
+                "child": [{
+                    "allButtons": ["新增", "查看", "修改", "删除", "查看评论", "设备租赁", "设备维修"],
+                    "appFrontIcon": "cuIcon-discover",
+                    "buttons": ["查看", "设备租赁"],
+                    "menu": "设备租赁列表",
+                    "menuJump": "列表",
+                    "tableName": "shebeizulin"
+                }], "menu": "设备租赁模块"
+            }, {
+                "child": [{
+                    "allButtons": ["新增", "查看", "修改", "删除", "查看评论", "报名活动"],
+                    "appFrontIcon": "cuIcon-shop",
+                    "buttons": ["查看", "报名活动"],
+                    "menu": "活动信息列表",
+                    "menuJump": "列表",
+                    "tableName": "huodongxinxi"
+                }], "menu": "活动信息模块"
+            }, {
+                "child": [{
+                    "allButtons": ["新增", "查看", "修改", "删除", "查看评论", "比赛报名"],
+                    "appFrontIcon": "cuIcon-addressbook",
+                    "buttons": ["查看", "比赛报名"],
+                    "menu": "比赛列表",
+                    "menuJump": "列表",
+                    "tableName": "bisai"
+                }], "menu": "比赛模块"
+            }],
+            "hasBackLogin": "是",
+            "hasBackRegister": "是",
+            "hasFrontLogin": "否",
+            "hasFrontRegister": "否",
+            "roleName": "员工",
+            "tableName": "yuangong"
+        }]
+    }
+}
+export default menu;

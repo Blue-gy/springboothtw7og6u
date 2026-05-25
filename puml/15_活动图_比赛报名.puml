@@ -1,0 +1,52 @@
+@startuml 比赛报名活动图
+skinparam backgroundColor #FEFEFE
+skinparam defaultFontName Microsoft YaHei
+skinparam defaultFontSize 11
+
+title 体育场馆管理系统 - 比赛报名活动图
+
+|会员|
+start
+:浏览比赛列表;
+:查看比赛详情;
+
+if (已登录?) then (是)
+  if (报名截止?) then (否)
+    :填写报名信息;
+    :提交报名申请;
+    
+    |系统|
+    :创建报名记录;
+    :设置状态为"待审核";
+    
+    |管理员|
+    :审核报名申请;
+    
+    if (审核通过?) then (是)
+      :更新状态为"已通过";
+      |会员|
+      :报名成功;
+      :参加比赛;
+      stop
+    else (否)
+      :更新状态为"已拒绝";
+      |会员|
+      :收到拒绝通知;
+      stop
+    endif
+  else (是)
+    |系统|
+    :返回报名已截止;
+    |会员|
+    :无法报名;
+    stop
+  endif
+else (否)
+  |系统|
+  :提示登录;
+  |会员|
+  :登录/注册;
+  :重新浏览比赛;
+endif
+
+@enduml

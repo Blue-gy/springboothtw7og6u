@@ -1,0 +1,51 @@
+@startuml 数据库关系图_商城订单
+skinparam backgroundColor #FEFEFE
+skinparam defaultFontName Microsoft YaHei
+skinparam defaultFontSize 11
+
+title 数据库关系图 - 商城订单模块
+
+entity "shangpinfenlei\n商品分类表" as FL {
+    * id : BIGINT <<PK>>
+    shangpinfenlei : VARCHAR
+}
+
+entity "shangpinxinxi\n商品信息表" as SP {
+    * id : BIGINT <<PK>>
+    shangpinmingcheng : VARCHAR
+    shangpinfenlei : VARCHAR <<FK>>
+    price : DECIMAL
+    alllimittimes : INT
+}
+
+entity "cart\n购物车表" as Cart {
+    * id : BIGINT <<PK>>
+    userid : BIGINT <<FK>>
+    goodid : BIGINT <<FK>>
+    buynumber : INT
+    price : DECIMAL
+}
+
+entity "orders\n订单表" as Order {
+    * id : BIGINT <<PK>>
+    orderid : VARCHAR <<UK>>
+    userid : BIGINT <<FK>>
+    goodid : BIGINT <<FK>>
+    buynumber : INT
+    total : DECIMAL
+    status : VARCHAR
+}
+
+entity "huiyuan\n会员表" as HY {
+    * id : BIGINT <<PK>>
+    yonghuzhanghao : VARCHAR <<UK>>
+    xingming : VARCHAR
+}
+
+FL ||--o{ SP : "1:N 包含"
+SP ||--o{ Cart : "1:N 加入购物车"
+SP ||--o{ Order : "1:N 被购买"
+HY ||--o{ Cart : "1:N 购物车"
+HY ||--o{ Order : "1:N 下单"
+
+@enduml

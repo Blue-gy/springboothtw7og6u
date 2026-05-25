@@ -1,0 +1,101 @@
+@startuml 预约模块类图
+skinparam backgroundColor #FEFEFE
+skinparam defaultFontName Microsoft YaHei
+skinparam defaultFontSize 11
+skinparam classAttributeIconSize 0
+
+title 预约模块类图
+
+class ChangdixinxiEntity {
+    - Long id
+    - String changdimingcheng
+    - String changditupian
+    - String changdijieshao
+    - String changdidizhi
+    - String changdisheshi
+    - String kaifangshijian
+    - BigDecimal changdijiage
+    - Integer discussnum
+    - Integer storeupnum
+    + get/set methods
+}
+
+class ChangdiyuyueEntity {
+    - Long id
+    - String changdimingcheng
+    - String changditupian
+    - String shijianduan
+    - Date yuyueshijian
+    - String yonghuzhanghao
+    - String xingming
+    - String shouji
+    - String sfsh
+    - String shhf
+    + get/set methods
+}
+
+class ChangdiyuyueController {
+    + page(params): R
+    + list(params): R
+    + save(entity): R
+    + update(entity): R
+    + delete(ids): R
+    + shBatch(ids, sfsh, shhf): R
+}
+
+interface ChangdiyuyueService {
+    + queryPage(params): PageUtils
+    + insert(entity): int
+    + update(entity): int
+    + selectById(id): ChangdiyuyueEntity
+}
+
+class ChangdiyuyueServiceImpl {
+}
+
+interface ChangdiyuyueDao {
+    + selectListVO(wrapper): List
+    + selectVO(wrapper): ChangdiyuyueVO
+}
+
+class KechengxinxiEntity {
+    - Long id
+    - String kechengmingcheng
+    - String kechengnandu
+    - String jiaolian
+    - String shangkeshijian
+    - String shangkedidian
+    - Integer discussnum
+    - Integer storeupnum
+    + get/set methods
+}
+
+class KechengyuyueEntity {
+    - Long id
+    - String kechengmingcheng
+    - String yonghuzhanghao
+    - Date yuyueshijian
+    - String sfsh
+    + get/set methods
+}
+
+class KechengyuyueController {
+    + page(params): R
+    + save(entity): R
+    + update(entity): R
+    + delete(ids): R
+    + shBatch(ids, sfsh, shhf): R
+}
+
+ChangdiyuyueController --> ChangdiyuyueService
+ChangdiyuyueServiceImpl ..|> ChangdiyuyueService
+ChangdiyuyueServiceImpl --> ChangdiyuyueDao
+ChangdiyuyueDao --|> BaseMapper
+ChangdiyuyueService --> ChangdiyuyueEntity
+ChangdiyuyueController --> ChangdixinxiEntity
+ChangdixinxiEntity ||--o{ ChangdiyuyueEntity
+
+KechengyuyueController --> KechengxinxiEntity
+KechengxinxiEntity ||--o{ KechengyuyueEntity
+
+@enduml

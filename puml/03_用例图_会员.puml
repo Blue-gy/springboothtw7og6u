@@ -1,0 +1,114 @@
+@startuml 会员用例图
+skinparam backgroundColor #FEFEFE
+skinparam defaultFontName Microsoft YaHei
+skinparam defaultFontSize 12
+
+title 体育场馆管理系统 - 会员用例图
+
+left to right direction
+
+actor "会员" as Member
+
+rectangle "体育场馆管理系统" {
+    
+    package "账户管理" {
+        usecase "注册账号" as UC1
+        usecase "登录系统" as UC2
+        usecase "退出登录" as UC3
+        usecase "修改个人信息" as UC4
+        usecase "修改密码" as UC5
+        usecase "重置密码" as UC6
+    }
+    
+    package "场地服务" {
+        usecase "浏览场地信息" as UC7
+        usecase "场地预约" as UC8
+        usecase "查看预约记录" as UC9
+    }
+    
+    package "课程服务" {
+        usecase "浏览课程信息" as UC10
+        usecase "查看课程详情" as UC11
+        usecase "课程预约" as UC12
+        usecase "查看推荐课程" as UC13
+    }
+    
+    package "赛事活动" {
+        usecase "浏览比赛信息" as UC14
+        usecase "比赛报名" as UC15
+        usecase "浏览活动信息" as UC16
+        usecase "活动报名" as UC17
+    }
+    
+    package "设备租赁" {
+        usecase "浏览设备信息" as UC18
+        usecase "申请设备租赁" as UC19
+        usecase "查看租赁记录" as UC20
+        usecase "归还设备" as UC21
+    }
+    
+    package "商城购物" {
+        usecase "浏览商品" as UC22
+        usecase "加入购物车" as UC23
+        usecase "管理购物车" as UC24
+        usecase "提交订单" as UC25
+        usecase "查看订单" as UC26
+        usecase "确认收货" as UC27
+    }
+    
+    package "互动功能" {
+        usecase "收藏信息" as UC28
+        usecase "查看收藏列表" as UC29
+        usecase "取消收藏" as UC30
+        usecase "发表评论" as UC31
+        usecase "在线留言" as UC32
+        usecase "查看公告" as UC33
+        usecase "点赞/踩" as UC34
+    }
+}
+
+Member --> UC1
+Member --> UC2
+Member --> UC3
+Member --> UC4
+Member --> UC5
+Member --> UC6
+Member --> UC7
+Member --> UC8
+Member --> UC9
+Member --> UC10
+Member --> UC11
+Member --> UC12
+Member --> UC13
+Member --> UC14
+Member --> UC15
+Member --> UC16
+Member --> UC17
+Member --> UC18
+Member --> UC19
+Member --> UC20
+Member --> UC21
+Member --> UC22
+Member --> UC23
+Member --> UC24
+Member --> UC25
+Member --> UC26
+Member --> UC27
+Member --> UC28
+Member --> UC29
+Member --> UC30
+Member --> UC31
+Member --> UC32
+Member --> UC33
+Member --> UC34
+
+' 包含关系
+UC13 ..> UC28 : <<include>>
+UC8 ..> UC9 : <<include>>
+UC12 ..> UC9 : <<include>>
+UC15 ..> UC9 : <<include>>
+UC17 ..> UC9 : <<include>>
+UC19 ..> UC20 : <<include>>
+UC25 ..> UC26 : <<include>>
+
+@enduml

@@ -1,0 +1,100 @@
+@startuml 订单模块类图
+skinparam backgroundColor #FEFEFE
+skinparam defaultFontName Microsoft YaHei
+skinparam defaultFontSize 11
+skinparam classAttributeIconSize 0
+
+title 订单模块类图
+
+class ShangpinxinxiEntity {
+    - Long id
+    - String shangpinmingcheng
+    - String shangpinfenlei
+    - String shangpintupian
+    - BigDecimal price
+    - Integer alllimittimes
+    - Integer onelimittimes
+    + get/set methods
+}
+
+class CartEntity {
+    - Long id
+    - String tablename
+    - Long userid
+    - Long goodid
+    - String goodname
+    - String picture
+    - Integer buynumber
+    - BigDecimal price
+    - BigDecimal discountprice
+    + get/set methods
+}
+
+class OrdersEntity {
+    - Long id
+    - String orderid
+    - String tablename
+    - Long userid
+    - Long goodid
+    - String goodname
+    - String picture
+    - Integer buynumber
+    - BigDecimal price
+    - BigDecimal discountprice
+    - BigDecimal total
+    - BigDecimal discounttotal
+    - Integer type
+    - String status
+    - String address
+    - String tel
+    - String consignee
+    - String logistics
+    + get/set methods
+}
+
+class CartController {
+    + page(params): R
+    + list(params): R
+    + save(entity): R
+    + update(entity): R
+    + delete(ids): R
+    + remind(column, type): R
+}
+
+class OrdersController {
+    + page(params): R
+    + save(entity): R
+    + update(entity): R
+    + delete(ids): R
+    + remind(column, type): R
+    + value(x, y): R
+    + valueDay(x, y, type): R
+    + group(column): R
+}
+
+interface CartService {
+    + queryPage(params): PageUtils
+    + insert(entity): int
+    + deleteById(id): int
+    + selectById(id): CartEntity
+}
+
+interface OrdersService {
+    + queryPage(params): PageUtils
+    + insert(entity): int
+    + update(entity): int
+    + selectById(id): OrdersEntity
+}
+
+ShangpinxinxiEntity ||--o{ CartEntity : "1:N 加入购物车"
+ShangpinxinxiEntity ||--o{ OrdersEntity : "1:N 被购买"
+CartEntity --> OrdersEntity : "生成订单"
+
+CartController --> CartService
+OrdersController --> OrdersService
+CartService --> CartEntity
+OrdersService --> OrdersEntity
+CartController --> CartEntity
+OrdersController --> OrdersEntity
+
+@enduml

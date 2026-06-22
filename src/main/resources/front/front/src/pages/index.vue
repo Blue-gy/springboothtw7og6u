@@ -2,86 +2,35 @@
   <div class="main-containers">
     <div class="body-containers"
          :style='{"minHeight":"100vh","padding":"0","margin":"0","position":"relative","background":"#fff"}'>
-      <div class="top-container"
-           :style='{"boxShadow":"0 0px 0px rgba(64, 158, 255, .3)","padding":"0 10%","borderColor":"#eee","margin":"0 0 90px","alignItems":"center","color":"#666","textAlign":"right","display":"flex","justifyContent":"flex-end","top":"0","left":"0","background":"#e9e9e9","borderWidth":"0px","width":"100%","fontSize":"14px","position":"relative","borderStyle":"solid","height":"30px","zIndex":"1002"}'>
-        <!-- info -->
-        <div
-            :style='{"margin":"0px 0 0","position":"absolute","top":"60px","float":"left","left":"10%","display":"block"}'>
-          <span
-              :style='{"padding":"0 0 0 12px","lineHeight":"30px","fontSize":"36px","color":"#666","float":"left","fontWeight":"600"}'>校园场地与设备预约管理系统</span>
+      <div class="top-bar">
+        <div class="top-bar-inner">
+          <div class="site-title">校园场地与设备预约管理系统</div>
+          <div class="top-actions">
+            <template v-if="Token">
+              <img class="user-avatar" v-if="headportrait" :src="baseUrl + headportrait">
+              <span class="username-text">{{ username }}</span>
+              <span class="top-link" v-if="notAdmin" @click="goMenu('/index/center')">个人中心</span>
+              <span class="top-link" @click="logout">退出</span>
+            </template>
+            <template v-else>
+              <span class="top-link login-btn" @click="toLogin()">登录 / 注册</span>
+            </template>
+          </div>
         </div>
-
-        <div v-if="false"
-             :style='{"margin":"0 10px","fontSize":"inherit","color":"inherit","display":"inline-block"}'></div>
-
-        <el-button v-if="Token" class="btn-shop" @click.native="goMenu('/index/cart')">
-          <span class="icon iconfont icon-wuliu8" :style='{"color":"inherit","fontSize":"inherit","display":"none"}'></span>
-          购物车
-        </el-button>
-
-        <img v-if="headportrait&&Token" :style='{"width":"24px","margin":"0","borderRadius":"50%","height":"24px"}'
-             :src="headportrait?baseUrl + headportrait:require('@/assets/avator.png')">
-        <div v-if="Token"
-             :style='{"padding":"0 6px","fontSize":"inherit","lineHeight":"30px","color":"inherit","display":"inline-block","height":"30px"}'>
-          {{ username }}
-        </div>
-        <div v-if="Token && notAdmin"
-             :style='{"cursor":"pointer","padding":"0 12px","color":"inherit","display":"inline-block","fontSize":"inherit","lineHeight":"30px","height":"30px"}'
-             @click="goMenu('/index/center')">个人中心
-        </div>
-        <el-button v-if="!Token" @click="toLogin()"
-                   :style='{"border":"0","padding":"0 20px","margin":"0px 0 0","color":"inherit","borderRadius":"2px","background":"none","display":"inline-block","fontSize":"14px","lineHeight":"30px","height":"30px"}'>
-          登录/注册
-        </el-button>
-        <el-button v-if="Token" @click="logout"
-                   :style='{"border":"0px solid #666","padding":"0 20px","margin":"0px 0 0","color":"inherit","borderRadius":"2px","background":"none","display":"inline-block","fontSize":"14px","lineHeight":"30px","height":"30px"}'>
-          退出
-        </el-button>
       </div>
 
 
-      <div class="menu-preview"
-           :style='{"padding":"0","borderColor":"#efefef","margin":"0 auto","background":"none","borderWidth":"0 0 0px 0","width":"80%","borderStyle":"solid","height":"auto"}'>
-        <el-scrollbar wrap-class="scrollbar-wrapper-horizontal">
-          <el-menu class="el-menu-horizontal-demo"
-                   :style='{"border":"0","padding":"0","listStyle":"none","margin":"0","alignItems":"center","flexWrap":"wrap","background":"#333","display":"flex","height":"50px"}'
-                   :default-active="activeMenu" :unique-opened="true" mode="horizontal" :router="true"
-                   @select="handleSelect">
-            <div class="userinfo" :style='{"width":"84px","padding":"6px 10px 0","display":"none","height":"auto"}'>
-              <el-image
-                  :style='{"width":"100%","objectFit":"cover","borderRadius":"20px","display":"block","height":"32px"}'
-                  :src="headportrait?baseUrl + headportrait:require('@/assets/avator.png')" fit="cover"></el-image>
-              <div :style='{"fontSize":"12px","lineHeight":"1.5","color":"#333","textAlign":"center"}'>{{ username }}
-              </div>
-            </div>
-            <el-menu-item class="home" index="/index/home" @click.native="goMenu('/index/home')">
-              <span
-                  :style='{"padding":"0 10px","margin":"0","color":"inherit","display":"none","width":"18px","lineHeight":"auto","fontSize":"18px","height":"auto"}'
-                  class="icon iconfont icon-shouye-zhihui"></span>
-              <span
-                  :style='{"padding":"0 24px","lineHeight":"auto","fontSize":"18px","color":"inherit","height":"auto"}'>首页</span>
-            </el-menu-item>
-            <el-menu-item class="item" v-for="(menu, index) in menuList" :index="menu.url" :key="index"
-                          @click.native="goMenu(menu.url)">
-              <i :style='{"padding":"0 10px","margin":"0","color":"inherit","display":"none","width":"18px","lineHeight":"auto","fontSize":"18px","height":"auto"}'
-                 :class="iconArr[index]"></i>
-              <span
-                  :style='{"padding":"0 24px","lineHeight":"auto","fontSize":"18px","color":"inherit","height":"auto"}'>{{ menu.name }}</span>
-            </el-menu-item>
-            <el-menu-item class="user" index="/index/center" v-if="Token && notAdmin"
-                          @click.native="goMenu('/index/center')">
-              <span
-                  :style='{"padding":"0 10px","margin":"0","color":"inherit","display":"none","width":"14px","lineHeight":"auto","fontSize":"14px","height":"auto"}'
-                  class="icon iconfont icon-shouye-zhihui"></span>
-              <span
-                  :style='{"padding":"0 10px","lineHeight":"auto","fontSize":"16px","color":"inherit","height":"auto"}'>我的资料</span>
-            </el-menu-item>
+      <div class="nav-bar">
+        <div class="nav-inner">
+          <el-menu class="nav-menu" :default-active="activeMenu" mode="horizontal" :router="true" @select="handleSelect">
+            <el-menu-item class="nav-item" index="/index/home" @click.native="goMenu('/index/home')">首页</el-menu-item>
+            <el-menu-item class="nav-item" v-for="(menu, index) in menuList" :index="menu.url" :key="index" @click.native="goMenu(menu.url)">{{ menu.name }}</el-menu-item>
           </el-menu>
-        </el-scrollbar>
+        </div>
       </div>
 
 
-      <div class="swiper3" :style='{"width":"100%","padding":"0 10%","margin":"10px auto","height":"auto"}'>
+      <div v-if="$route.path==='/index/home' || $route.path==='/index'" class="swiper3" :style='{"width":"100%","padding":"0 10%","margin":"10px auto","height":"auto"}'>
         <div class="swiper-container mySwiper3">
           <div class="swiper-wrapper">
             <div class="swiper-slide" v-for="item in carouselList" :key="item.id">
@@ -109,11 +58,9 @@
       </div>
       <router-view id="scrollView"></router-view>
 
-      <div class="bottom-preview" :style='{"width":"100%","height":"auto"}'>
-        <div
-            :style='{"minHeight":"150px","padding":"20px 7%","overflow":"hidden","color":"#fff","textAlign":"center","background":"#333","width":"100%","fontSize":"14px","height":"auto"}'>
-          <div v-html="bottomContent"></div>
-        </div>
+      <div class="site-footer">
+        <div v-html="bottomContent" class="footer-content"></div>
+        <div class="footer-copy">© 2025 校园场地与设备预约管理系统</div>
       </div>
     </div>
 
@@ -753,396 +700,112 @@ export default {
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
-.menu-preview {
-  .el-scrollbar {
-    height: 100%;
-
-    & /deep/ .scrollbar-wrapper-vertical {
-      overflow-x: hidden;
-    }
-
-    & /deep/ .scrollbar-wrapper-horizontal {
-      overflow-y: hidden;
-
-      .el-scrollbar__view {
-        white-space: nowrap;
-      }
-    }
-  }
-}
-
-
-.menu-preview .el-menu-horizontal-demo .el-menu-item.home {
-  cursor: pointer;
-  padding: 0;
-  margin: 0;
-  color: #fff;
-  white-space: pre-wrap;
-  background: none;
-  display: flex;
-  font-size: 18px;
-  line-height: 50px;
-  position: relative;
-  list-style: none;
-  height: 50px;
-}
-
-.menu-preview .el-menu-horizontal-demo .el-menu-item.home:hover {
-  color: #fff;
-  background: #000;
-  border-color: #f95927;
-  border-width: 0 0 0px;
-  border-style: solid;
-}
-
-.menu-preview .el-menu-horizontal-demo .el-menu-item.home.is-active {
-  color: #fff;
-  background: #ff3d00;
-  border-color: #f95927;
-  border-width: 0 0 0px;
-  border-style: solid;
-}
-
-.menu-preview .el-menu-horizontal-demo .el-menu-item.user {
-  cursor: pointer;
-  border: 0;
-  padding: 0 20px;
-  color: #333;
-  white-space: nowrap;
-  display: none;
-  font-size: 16px;
-  line-height: 30px;
-  background: none;
-  align-items: center;
-  position: relative;
-  list-style: none;
-  height: 30px;
-  order: 3;
-}
-
-.menu-preview .el-menu-horizontal-demo .el-menu-item.user:hover {
-  color: #f95927;
-  border-color: #f95927;
-  border-width: 0 0 2px;
-  border-style: solid;
-}
-
-.menu-preview .el-menu-horizontal-demo .el-menu-item.user.is-active {
-  color: #f95927;
-  border-color: #f95927;
-  border-width: 0 0 2px;
-  border-style: solid;
-}
-
-.menu-preview .el-menu-horizontal-demo .el-menu-item.service {
-  cursor: pointer;
-  border: 0;
-  padding: 0;
-  color: #fff;
-  white-space: nowrap;
-  display: flex;
-  font-size: 18px;
-  line-height: 50px;
-  background: none;
-  align-items: center;
-  position: relative;
-  list-style: none;
-  height: 50px;
-  order: 4;
-}
-
-.menu-preview .el-menu-horizontal-demo .el-menu-item.service:hover {
-  color: #fff;
-  background: #000;
-  border-color: #f95927;
-  border-width: 0 0 0px;
-  border-style: solid;
-}
-
-.menu-preview .el-menu-horizontal-demo .el-menu-item.service.is-active {
-  color: #fff;
-  background: #ff3d00;
-  border-color: #f95927;
-  border-width: 0 0 0px;
-  border-style: solid;
-}
-
-.menu-preview .el-menu-horizontal-demo .el-menu-item.shop {
-  cursor: pointer;
-  border: 0;
-  padding: 0 20px;
-  color: #fff;
-  white-space: nowrap;
-  display: none;
-  font-size: 16px;
-  line-height: 30px;
-  background: none;
-  align-items: center;
-  list-style: none;
-  height: 30px;
-  order: 5;
-}
-
-.menu-preview .el-menu-horizontal-demo .el-menu-item.shop:hover {
-  color: #fff;
-  border-color: #f95927;
-  border-width: 0 0 0px;
-  border-style: solid;
-}
-
-.menu-preview .el-menu-horizontal-demo .el-menu-item.shop.is-active {
-  color: #fff;
-  border-color: #f95927;
-  border-width: 0 0 0px;
-  border-style: solid;
-}
-
-.menu-preview .el-menu-horizontal-demo .el-menu-item.back {
-  cursor: pointer;
-  border: 0;
-  padding: 0 20px;
-  color: #333;
-  white-space: nowrap;
-  display: none;
-  font-size: 16px;
-  line-height: 30px;
-  background: none;
-  align-items: center;
-  position: relative;
-  list-style: none;
-  height: 30px;
-  order: 6;
-}
-
-.menu-preview .el-menu-horizontal-demo .el-menu-item.back:hover {
-  color: #f95927;
-  border-color: #f95927;
-  border-width: 0 0 2px;
-  border-style: solid;
-}
-
-.menu-preview .el-menu-horizontal-demo .el-menu-item.back.is-active {
-  color: #f95927;
-  border-color: #f95927;
-  border-width: 0 0 2px;
-  border-style: solid;
-}
-
-.menu-preview .el-menu-horizontal-demo .el-menu-item.item {
-  cursor: pointer;
-  padding: 0;
-  margin: 0;
-  color: #fff;
-  white-space: nowrap;
-  display: flex;
-  font-size: 18px;
-  border-color: #ddd;
-  line-height: 50px;
-  background: none;
-  justify-content: center;
-  border-width: 0 0px 0 0;
-  align-items: center;
-  position: relative;
-  border-style: solid;
-  list-style: none;
-  text-align: center;
-  height: 50px;
-}
-
-.menu-preview .el-menu-horizontal-demo .el-menu-item.item:hover {
-  color: #fff;
-  background: #000;
-  border-color: #f95927;
-  border-width: 0 0 0px;
-  border-style: solid;
-}
-
-.menu-preview .el-menu-horizontal-demo .el-menu-item.item.is-active {
-  color: #fff;
-  background: #ff3d00;
-  border-color: #f95927;
-  border-width: 0 0 0px;
-  border-style: solid;
-}
-
-.banner-preview {
-  .el-carousel /deep/ .el-carousel__indicator button {
-    width: 0;
-    height: 0;
-    display: none;
-  }
-}
-
-.banner-preview .el-carousel /deep/ .el-carousel__container .el-carousel__arrow--left {
-  width: 36px;
-  font-size: 12px;
-  height: 36px;
-}
-
-.banner-preview .el-carousel /deep/ .el-carousel__container .el-carousel__arrow--left:hover {
-  background: red;
-}
-
-.banner-preview .el-carousel /deep/ .el-carousel__container .el-carousel__arrow--right {
-  width: 36px;
-  font-size: 12px;
-  height: 36px;
-}
-
-.banner-preview .el-carousel /deep/ .el-carousel__container .el-carousel__arrow--right:hover {
-  background: red;
-}
-
-.banner-preview .el-carousel /deep/ .el-carousel__indicators {
-  padding: 0;
-  margin: 0;
-  z-index: 2;
-  position: absolute;
-  list-style: none;
-}
-
-.banner-preview .el-carousel /deep/ .el-carousel__indicators li {
-  padding: 0;
-  margin: 0 4px;
-  background: #fff;
-  display: inline-block;
-  width: 12px;
-  opacity: 0.4;
-  transition: 0.3s;
-  height: 12px;
-}
-
-.banner-preview .el-carousel /deep/ .el-carousel__indicators li:hover {
-  padding: 0;
-  margin: 0 4px;
-  background: #fff;
-  display: inline-block;
-  width: 24px;
-  opacity: 0.7;
-  height: 12px;
-}
-
-.banner-preview .el-carousel /deep/ .el-carousel__indicators li.is-active {
-  padding: 0;
-  margin: 0 4px;
-  background: #fff;
-  display: inline-block;
-  width: 24px;
-  opacity: 1;
-  height: 12px;
-}
-
-.chat-content {
-  padding-bottom: 20px;
+/* ===== 顶部信息栏 ===== */
+.top-bar {
   width: 100%;
-  margin-bottom: 10px;
-  max-height: 300px;
-  height: 300px;
-  overflow-y: scroll;
-  border: 1px solid #eeeeee;
   background: #fff;
-
-  .left-content {
-    float: left;
-    margin-bottom: 10px;
-    padding: 10px;
-    max-width: 80%;
-  }
-
-  .right-content {
-    float: right;
-    margin-bottom: 10px;
-    padding: 10px;
-    max-width: 80%;
-  }
+  border-bottom: 1px solid #f0f0f0;
 }
-
-.clear-float {
-  clear: both;
+.top-bar-inner {
+  width: 80%;
+  margin: 0 auto;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-
-
-.swiper3 .swiper-button-prev:after {
-  display: none;
+.site-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a1a1a;
+  letter-spacing: 1px;
 }
-
-.swiper3 .swiper-button-next:after {
-  display: none;
+.top-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
-
-.main-containers .swiper3 .swiper-pagination /deep/ span.swiper-pagination-bullet {
-  border-radius: 100%;
-  margin: 0 4px;
-  background: #000;
-  display: inline-block;
-  width: 14px;
-  opacity: .2;
-  height: 14px;
+.user-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 4px;
 }
-
-.main-containers .swiper3 .swiper-pagination /deep/ span.swiper-pagination-bullet:hover {
-  background: #e70012;
-  opacity: 1;
-}
-
-.main-containers .swiper3 .swiper-pagination /deep/ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
-  background: #e70012;
-  opacity: 1;
-}
-
-// -------- search --------
-.main-containers .search .select /deep/ .el-input__inner {
-  border-radius: 20px 0 0 20px;
-  padding: 0 30px 0 10px;
-  color: #666;
-  width: 150px;
+.username-text {
   font-size: 14px;
-  border-color: #ddd;
-  border-width: 1px 0 1px 1px;
-  border-style: solid;
-  height: 40px;
+  color: #555;
+  margin-right: 4px;
 }
-
-.main-containers .search .input /deep/ .el-input__inner {
-  border: 1px solid #ddd;
-  border-radius: 0px;
+.top-link {
+  font-size: 14px;
+  color: #555;
+  cursor: pointer;
   padding: 0 10px;
+  height: 54px;
+  line-height: 54px;
+  display: inline-block;
+  transition: color .2s;
+  &:hover { color: #1890ff; }
+}
+.login-btn {
+  color: #1890ff;
+  font-weight: 500;
+}
+
+/* ===== 导航栏 ===== */
+.nav-bar {
+  width: 100%;
+  background: #fff;
+  border-bottom: 2px solid #f0f0f0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+}
+.nav-inner {
+  width: 80%;
+  margin: 0 auto;
+}
+.nav-menu {
+  border-bottom: none !important;
+  background: transparent !important;
+}
+.nav-menu ::v-deep .el-menu-item {
+  font-size: 15px;
+  color: #333 !important;
+  height: 50px;
+  line-height: 50px;
+  border-bottom: 3px solid transparent !important;
+  padding: 0 20px;
+  transition: all .2s;
+}
+.nav-menu ::v-deep .el-menu-item:hover {
+  background: transparent !important;
+  color: #1890ff !important;
+}
+.nav-menu ::v-deep .el-menu-item.is-active {
+  color: #1890ff !important;
+  border-bottom-color: #1890ff !important;
+  background: transparent !important;
+  font-weight: 600;
+}
+
+/* ===== 底栏 ===== */
+.site-footer {
+  background: #1f2329;
+  color: #aaa;
+  text-align: center;
+  padding: 32px 10%;
+  margin-top: 60px;
+}
+.footer-content {
+  font-size: 14px;
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+.footer-copy {
+  font-size: 12px;
   color: #666;
-  width: 250px;
-  font-size: 14px;
-  height: 40px;
-}
-
-// -------- search --------
-
-.main-containers .btn-service {
-  border: 0;
-  padding: 0 8px;
-  margin: 0 10px;
-  color: #fff;
-  background: none;
-  display: none;
-  width: auto;
-  font-size: 14px;
-  line-height: 30px;
-  height: 30px;
-}
-
-.main-containers .btn-service:hover {
-}
-
-.main-containers .btn-shop {
-  border: 0;
-  padding: 0 8px;
-  margin: 0 10px;
-  color: inherit;
-  background: none;
-  width: auto;
-  font-size: 14px;
-  line-height: 30px;
-  height: 30px;
-}
-
-.main-containers .btn-shop:hover {
 }
 </style>

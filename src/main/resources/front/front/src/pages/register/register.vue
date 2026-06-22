@@ -303,13 +303,13 @@ export default {
 			width: auto;
 		}
 		
-		.el-form-item /deep/ .el-form-item__content {
+		.el-form-item ::v-deep .el-form-item__content {
 						display: flex;
 						width: 100%;
 						flex-wrap: wrap;
 					}
 		
-		.rgs-form .el-input /deep/ .el-input__inner {
+		.rgs-form .el-input ::v-deep .el-input__inner {
 						border-radius: 4px;
 						padding: 0 10px;
 						outline: none;
@@ -323,7 +323,7 @@ export default {
 						height: 40px;
 					}
 		
-		.rgs-form .el-select /deep/ .el-input__inner {
+		.rgs-form .el-select ::v-deep .el-input__inner {
 						border-radius: 4px;
 						padding: 0 10px;
 						outline: none;
@@ -338,7 +338,7 @@ export default {
 						height: 40px;
 					}
 		
-		.rgs-form .el-date-editor /deep/ .el-input__inner {
+		.rgs-form .el-date-editor ::v-deep .el-input__inner {
 						border-radius: 4px;
 						padding: 0 10px 0 30px;
 						outline: none;
@@ -353,7 +353,7 @@ export default {
 						height: 40px;
 					}
 		
-		.rgs-form .el-date-editor /deep/ .el-input__inner {
+		.rgs-form .el-date-editor ::v-deep .el-input__inner {
 						border-radius: 4px;
 						padding: 0 10px 0 30px;
 						outline: none;
@@ -368,7 +368,7 @@ export default {
 						height: 40px;
 					}
 		
-		.rgs-form /deep/ .el-upload--picture-card {
+		.rgs-form ::v-deep .el-upload--picture-card {
 			background: transparent;
 			border: 0;
 			border-radius: 0;
@@ -378,7 +378,7 @@ export default {
 			vertical-align: middle;
 		}
 		
-		.rgs-form /deep/ .upload .upload-img {
+		.rgs-form ::v-deep .upload .upload-img {
 		  		  cursor: pointer;
 		  		  border-radius: 4px;
 		  		  color: #ddd;
@@ -393,7 +393,7 @@ export default {
 		  		  height: 60px;
 		  		}
 		
-		.rgs-form /deep/ .el-upload-list .el-upload-list__item {
+		.rgs-form ::v-deep .el-upload-list .el-upload-list__item {
 		  		  cursor: pointer;
 		  		  border-radius: 4px;
 		  		  color: #ddd;
@@ -408,7 +408,7 @@ export default {
 		  		  height: 60px;
 		  		}
 		
-		.rgs-form /deep/ .el-upload .el-icon-plus {
+		.rgs-form ::v-deep .el-upload .el-icon-plus {
 		  		  cursor: pointer;
 		  		  border-radius: 4px;
 		  		  color: #ddd;

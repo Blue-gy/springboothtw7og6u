@@ -24,8 +24,8 @@ import com.baomidou.mybatisplus.enums.IdType;
 /**
  * 场地预约
  * 数据库通用操作实体类（普通增删改查）
- * @author 
- * @email 
+ * @author
+ * @email
  * @date 2030-02-26 18:34:49
  */
 @TableName("changdiyuyue")
@@ -34,9 +34,9 @@ public class ChangdiyuyueEntity<T> implements Serializable {
 
 
 	public ChangdiyuyueEntity() {
-		
+
 	}
-	
+
 	public ChangdiyuyueEntity(T t) {
 		try {
 			BeanUtils.copyProperties(this, t);
@@ -45,7 +45,7 @@ public class ChangdiyuyueEntity<T> implements Serializable {
 			e.printStackTrace();
 		}
 	}
-	
+
 	/**
 	 * 主键id
 	 */
@@ -54,90 +54,96 @@ public class ChangdiyuyueEntity<T> implements Serializable {
 	/**
 	 * 场地名称
 	 */
-					
+
 	private String changdimingcheng;
-	
+
 	/**
 	 * 场地图片
 	 */
-					
+
 	private String changditupian;
-	
+
 	/**
 	 * 场地介绍
 	 */
-					
+
 	private String changdijieshao;
-	
+
 	/**
 	 * 场地地址
 	 */
-					
+
 	private String changdidizhi;
-	
+
 	/**
 	 * 场地设施
 	 */
-					
+
 	private String changdisheshi;
-	
+
 	/**
 	 * 开放时间
 	 */
-					
+
 	private String kaifangshijian;
-	
+
 	/**
 	 * 场地价格
 	 */
-					
+
 	private Integer changdijiage;
-	
+
 	/**
 	 * 时间段
 	 */
-					
+
 	private String shijianduan;
-	
+
 	/**
 	 * 预约时间
 	 */
-				
-	@JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd HH:mm:ss")
-	@DateTimeFormat 		
+
+	@JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd")
+	@DateTimeFormat
 	private Date yuyueshijian;
-	
+
 	/**
 	 * 用户账号
 	 */
-					
+
 	private String yonghuzhanghao;
-	
+
 	/**
 	 * 姓名
 	 */
-					
+
 	private String xingming;
-	
+
 	/**
 	 * 手机
 	 */
-					
+
 	private String shouji;
-	
+
 	/**
 	 * 是否审核
 	 */
-					
+
 	private String sfsh;
-	
+
 	/**
 	 * 审核回复
 	 */
-					
+
 	private String shhf;
-	
-	
+
+	/**
+	 * 预约类型(个人/集体)
+	 */
+
+	private String yuyueleixing;
+
+
 	@JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd HH:mm:ss")
 	@DateTimeFormat
 	private Date addtime;
@@ -323,6 +329,18 @@ public class ChangdiyuyueEntity<T> implements Serializable {
 	 */
 	public String getShhf() {
 		return shhf;
+	}
+	/**
+	 * 设置：预约类型(个人/集体)
+	 */
+	public void setYuyueleixing(String yuyueleixing) {
+		this.yuyueleixing = yuyueleixing;
+	}
+	/**
+	 * 获取：预约类型(个人/集体)
+	 */
+	public String getYuyueleixing() {
+		return yuyueleixing;
 	}
 
 }

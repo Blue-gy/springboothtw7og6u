@@ -28,9 +28,11 @@ import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.annotation.IgnoreAuth;
 
 import com.entity.ZulinguihaiEntity;
+import com.entity.ZulinjiluEntity;
 import com.entity.view.ZulinguihaiView;
 
 import com.service.ZulinguihaiService;
+import com.service.ZulinjiluService;
 import com.service.TokenService;
 import com.utils.PageUtils;
 import com.utils.R;
@@ -51,6 +53,9 @@ import java.io.IOException;
 public class ZulinguihaiController {
     @Autowired
     private ZulinguihaiService zulinguihaiService;
+
+    @Autowired
+    private ZulinjiluService zulinjiluService;
 
 
 
@@ -138,20 +143,42 @@ public class ZulinguihaiController {
      * 后端保存
      */
     @RequestMapping("/save")
+    @Transactional
     public R save(@RequestBody ZulinguihaiEntity zulinguihai, HttpServletRequest request){
-    	//ValidatorUtils.validateEntity(zulinguihai);
+        //ValidatorUtils.validateEntity(zulinguihai);
+        zulinguihai.setSfsh("通过");
         zulinguihaiService.insert(zulinguihai);
+        // 更新租赁记录的归还状态
+        updateZulinjiluGuihaiStatus(zulinguihai);
         return R.ok();
     }
-    
+
     /**
      * 前端保存
      */
     @RequestMapping("/add")
+    @Transactional
     public R add(@RequestBody ZulinguihaiEntity zulinguihai, HttpServletRequest request){
-    	//ValidatorUtils.validateEntity(zulinguihai);
+        //ValidatorUtils.validateEntity(zulinguihai);
+        zulinguihai.setSfsh("通过");
         zulinguihaiService.insert(zulinguihai);
+        // 更新租赁记录的归还状态
+        updateZulinjiluGuihaiStatus(zulinguihai);
         return R.ok();
+    }
+
+    /**
+     * 更新租赁记录的归还状态为"已归还"
+     */
+    private void updateZulinjiluGuihaiStatus(ZulinguihaiEntity zulinguihai) {
+        Long crossrefid = zulinguihai.getCrossrefid();
+        if (crossrefid != null) {
+            ZulinjiluEntity zulinjilu = zulinjiluService.selectById(crossrefid);
+            if (zulinjilu != null) {
+                zulinjilu.setGuihaizhuangtai("已归还");
+                zulinjiluService.updateById(zulinjilu);
+            }
+        }
     }
 
 

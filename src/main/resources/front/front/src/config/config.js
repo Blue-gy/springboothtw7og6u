@@ -11,10 +11,6 @@ export default {
             url: '/index/kechengxinxi'
         },
         {
-            name: '商品信息',
-            url: '/index/shangpinxinxi'
-        },
-        {
             name: '设备租赁',
             url: '/index/shebeizulin'
         },

@@ -18,6 +18,14 @@
 	    <div class="lable" v-if="true" :style='{"width":"auto","padding":"0 0 0 10px","lineHeight":"42px","textAlign":"right","display":"inline-block"}'>设备名称：</div>
         <el-input v-model="formSearch.shebeimingcheng" placeholder="设备名称" @keydown.enter.native="getList(1, curFenlei)" clearable></el-input>
       </el-form-item>
+		  <el-form-item :style='{"margin":"0 10px 0 0"}'>
+			    <div class="lable" v-if="true" :style='{"width":"auto","padding":"0 0 0 10px","lineHeight":"42px","textAlign":"right","display":"inline-block"}'>归还状态：</div>
+			    <el-select v-model="formSearch.guihaizhuangtai" placeholder="全部" clearable @change="getList(1)">
+			      <el-option label="全部" value=""></el-option>
+			      <el-option label="未归还" value="未归还"></el-option>
+			      <el-option label="已归还" value="已归还"></el-option>
+			    </el-select>
+			  </el-form-item>
 	  <el-button v-if=" true " :style='{"cursor":"pointer","border":"0","padding":"0px 15px","margin":"0px 10px 0 10px","color":"#fff","display":"inline-block","outline":"none","borderRadius":"0px","background":"#ff777f","width":"100px","fontSize":"14px","lineHeight":"36px","height":"36px"}' type="primary" @click="getList(1, curFenlei)"><i v-if="true" :style='{"color":"#fff","margin":"0 10px 0 0","fontSize":"14px"}' class="el-icon-search"></i>查询</el-button>
 	  <el-button v-if="btnAuth('zulinjilu','新增')" :style='{"cursor":"pointer","border":"0px solid #ddd","padding":"0px 15px","margin":"0px 10px 0 0","color":"#fff","display":"inline-block","outline":"none","borderRadius":"0px","background":"#c5c5c5","width":"80px","fontSize":"14px","lineHeight":"36px","height":"36px"}' type="primary" @click="add('/index/zulinjiluAdd')"><i v-if="false" :style='{"color":"#fff","margin":"0 10px 0 0","fontSize":"14px"}' class="el-icon-circle-plus-outline"></i>添加</el-button>
     </el-form>
@@ -51,6 +59,11 @@
 		          <span class="icon iconfont icon-geren16"></span>
 		          <span class="text">{{item.yonghuzhanghao}}</span>
 		        </div>
+					<div :style='{"padding":"2px 0px","borderColor":"#f0f0f0","margin":"0 10px 0 0","borderStyle":"dashed","borderWidth":"0 0 0px 0","display":"inline-block"}' class="guihai">
+							<span class="icon iconfont icon-shijian21"></span>
+							<span v-if="item.guihaizhuangtai=='已归还'" style="color:#4caf50">已归还</span>
+							<span v-else style="color:#ff9800">未归还</span>
+						</div>
 		      </div>
 		    </div>
 		  </div>
@@ -101,6 +114,7 @@
         ],
         formSearch: {
           shebeimingcheng: '',
+          guihaizhuangtai: '',
         },
         fenlei: [],
 		feileiColumn: '',
@@ -116,8 +130,8 @@
 		centerType:false,
 		previewImg: '',
 		previewVisible: false,
-		sortType: 'zulinshijian',
-		sortOrder: 'desc',
+		sortType: 'guihaizhuangtai',
+		sortOrder: 'asc',
       }
     },
     created() {
@@ -152,8 +166,9 @@
         let params = {page, limit: this.pageSize};
         let searchWhere = {};
         if (this.formSearch.shebeimingcheng != '') searchWhere.shebeimingcheng = '%' + this.formSearch.shebeimingcheng + '%';
+        if (this.formSearch.guihaizhuangtai != '') searchWhere.guihaizhuangtai = this.formSearch.guihaizhuangtai;
 		if(!this.centerType){
-			params['sfsh'] = '是';
+			params['sfsh'] = '通过';
 		}
 		if (this.sortType) searchWhere.sort = this.sortType
 		if (this.sortOrder) searchWhere.order = this.sortOrder
@@ -213,18 +228,18 @@
 		width: auto;
 	}
 
-	.breadcrumb-preview .el-breadcrumb /deep/ .el-breadcrumb__separator {
+	.breadcrumb-preview .el-breadcrumb ::v-deep .el-breadcrumb__separator {
 		margin: 0 9px;
 		color: #ccc;
 		font-weight: 500;
 	}
 	
-	.breadcrumb-preview .el-breadcrumb .item1 /deep/ .el-breadcrumb__inner a {
+	.breadcrumb-preview .el-breadcrumb .item1 ::v-deep .el-breadcrumb__inner a {
 		color: #333;
 		display: inline-block;
 	}
 	
-	.breadcrumb-preview .el-breadcrumb .item2 /deep/ .el-breadcrumb__inner a {
+	.breadcrumb-preview .el-breadcrumb .item2 ::v-deep .el-breadcrumb__inner a {
 		color: #666;
 		display: inline-block;
 	}
@@ -339,7 +354,7 @@
 		width: 100%;
 	}
 	
-	.list-form-pv .el-input /deep/ .el-input__inner {
+	.list-form-pv .el-input ::v-deep .el-input__inner {
 		padding: 0 10px;
 		margin: 0;
 		color: #333;
@@ -355,10 +370,10 @@
 		height: 36px;
 	}
 	
-	.list-form-pv .el-select /deep/ .el-input__inner {
+	.list-form-pv .el-select ::v-deep .el-input__inner {
 	}
 	
-	.list-form-pv .el-date-editor /deep/ .el-input__inner {
+	.list-form-pv .el-date-editor ::v-deep .el-input__inner {
 		padding: 0 30px;
 		margin: 0;
 		color: #333;
@@ -399,7 +414,7 @@
 		transition: 0.3s;
 	}
 	
-	#pagination.el-pagination /deep/ .el-pagination__total {
+	#pagination.el-pagination ::v-deep .el-pagination__total {
 		margin: 0 10px 0 0;
 		color: #666;
 		font-weight: 400;
@@ -410,7 +425,7 @@
 		height: 28px;
 	}
 	
-	#pagination.el-pagination /deep/ .btn-prev {
+	#pagination.el-pagination ::v-deep .btn-prev {
 		border: none;
 		border-radius: 2px;
 		padding: 0;
@@ -425,7 +440,7 @@
 		height: 28px;
 	}
 	
-	#pagination.el-pagination /deep/ .btn-next {
+	#pagination.el-pagination ::v-deep .btn-next {
 		border: none;
 		border-radius: 2px;
 		padding: 0;
@@ -440,7 +455,7 @@
 		height: 28px;
 	}
 	
-	#pagination.el-pagination /deep/ .btn-prev:disabled {
+	#pagination.el-pagination ::v-deep .btn-prev:disabled {
 		border: none;
 		cursor: not-allowed;
 		border-radius: 2px;
@@ -455,7 +470,7 @@
 		height: 28px;
 	}
 	
-	#pagination.el-pagination /deep/ .btn-next:disabled {
+	#pagination.el-pagination ::v-deep .btn-next:disabled {
 		border: none;
 		cursor: not-allowed;
 		border-radius: 2px;
@@ -470,14 +485,14 @@
 		height: 28px;
 	}
 	
-	#pagination.el-pagination /deep/ .el-pager {
+	#pagination.el-pagination ::v-deep .el-pager {
 		padding: 0;
 		margin: 0;
 		display: inline-block;
 		vertical-align: top;
 	}
 	
-	#pagination.el-pagination /deep/ .el-pager .number {
+	#pagination.el-pagination ::v-deep .el-pager .number {
 		cursor: pointer;
 		padding: 0 4px;
 		margin: 0 5px;
@@ -493,7 +508,7 @@
 		height: 28px;
 	}
 	
-	#pagination.el-pagination /deep/ .el-pager .number:hover {
+	#pagination.el-pagination ::v-deep .el-pager .number:hover {
 		cursor: pointer;
 		padding: 0 4px;
 		margin: 0 5px;
@@ -509,7 +524,7 @@
 		height: 28px;
 	}
 	
-	#pagination.el-pagination /deep/ .el-pager .number.active {
+	#pagination.el-pagination ::v-deep .el-pager .number.active {
 		cursor: default;
 		padding: 0 4px;
 		margin: 0 5px;
@@ -525,7 +540,7 @@
 		height: 28px;
 	}
 	
-	#pagination.el-pagination /deep/ .el-pagination__sizes {
+	#pagination.el-pagination ::v-deep .el-pagination__sizes {
 		display: inline-block;
 		vertical-align: top;
 		font-size: 13px;
@@ -533,13 +548,13 @@
 		height: 28px;
 	}
 	
-	#pagination.el-pagination /deep/ .el-pagination__sizes .el-input {
+	#pagination.el-pagination ::v-deep .el-pagination__sizes .el-input {
 		margin: 0 5px;
 		width: 100px;
 		position: relative;
 	}
 	
-	#pagination.el-pagination /deep/ .el-pagination__sizes .el-input .el-input__inner {
+	#pagination.el-pagination ::v-deep .el-pagination__sizes .el-input .el-input__inner {
 		border: 1px solid #DCDFE6;
 		cursor: pointer;
 		padding: 0 25px 0 8px;
@@ -555,14 +570,14 @@
 		height: 28px;
 	}
 	
-	#pagination.el-pagination /deep/ .el-pagination__sizes .el-input span.el-input__suffix {
+	#pagination.el-pagination ::v-deep .el-pagination__sizes .el-input span.el-input__suffix {
 		top: 0;
 		position: absolute;
 		right: 0;
 		height: 100%;
 	}
 	
-	#pagination.el-pagination /deep/ .el-pagination__sizes .el-input .el-input__suffix .el-select__caret {
+	#pagination.el-pagination ::v-deep .el-pagination__sizes .el-input .el-input__suffix .el-select__caret {
 		cursor: pointer;
 		color: #C0C4CC;
 		width: 25px;
@@ -571,7 +586,7 @@
 		text-align: center;
 	}
 	
-	#pagination.el-pagination /deep/ .el-pagination__jump {
+	#pagination.el-pagination ::v-deep .el-pagination__jump {
 		margin: 0 0 0 24px;
 		color: #606266;
 		display: inline-block;
@@ -581,7 +596,7 @@
 		height: 28px;
 	}
 	
-	#pagination.el-pagination /deep/ .el-pagination__jump .el-input {
+	#pagination.el-pagination ::v-deep .el-pagination__jump .el-input {
 		border-radius: 3px;
 		padding: 0 2px;
 		margin: 0 2px;
@@ -594,7 +609,7 @@
 		height: 28px;
 	}
 	
-	#pagination.el-pagination /deep/ .el-pagination__jump .el-input .el-input__inner {
+	#pagination.el-pagination ::v-deep .el-pagination__jump .el-input .el-input__inner {
 		border: 1px solid #DCDFE6;
 		cursor: pointer;
 		padding: 0 3px;

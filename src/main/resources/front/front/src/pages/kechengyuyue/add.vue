@@ -50,14 +50,8 @@
             <el-input v-model="ruleForm.shangkedidian" 
                 placeholder="上课地点" clearable :disabled=" false  ||ro.shangkedidian"></el-input>
           </el-form-item>
-          <el-form-item :style='{"width":"100%","padding":"10px","margin":"0 0 10px","background":"none","display":"inline-block"}' label="预约时间" prop="yuyueshijian">
-              <el-date-picker
-				  :disabled=" false  ||ro.yuyueshijian"
-                  value-format="yyyy-MM-dd HH:mm:ss"
-                  v-model="ruleForm.yuyueshijian" 
-                  type="datetime"
-                  placeholder="预约时间">
-              </el-date-picker>
+          <el-form-item :style='{"width":"100%","padding":"10px","margin":"0 0 10px","background":"none","display":"inline-block"}' label="上课时间" prop="yuyueshijian">
+              <el-input v-model="ruleForm.shangkeshijian" :disabled="true" placeholder="以课程上课时间为准"></el-input>
           </el-form-item>
           <el-form-item :style='{"width":"100%","padding":"10px","margin":"0 0 10px","background":"none","display":"inline-block"}' label="用户账号" prop="yonghuzhanghao">
             <el-input v-model="ruleForm.yonghuzhanghao" 
@@ -275,6 +269,7 @@
 			var crossoptnum;
 			this.$refs["ruleForm"].validate(valid => {
 				if(valid) {
+					this.ruleForm.yuyueshijian = this.getCurDateTime();
 					if(this.type=='cross'){
 						var statusColumnName = localStorage.getItem('statusColumnName');
 						var statusColumnValue = localStorage.getItem('statusColumnValue');
@@ -384,7 +379,7 @@
 		width: auto;
 	}
 	
-	.add-update-preview .el-form-item /deep/ .el-form-item__label {
+	.add-update-preview .el-form-item ::v-deep .el-form-item__label {
 	  padding: 0 10px 0 0;
 	  color: #666;
 	  font-weight: 500;
@@ -394,11 +389,11 @@
 	  text-align: right;
 	}
 	
-	.add-update-preview .el-form-item /deep/ .el-form-item__content {
+	.add-update-preview .el-form-item ::v-deep .el-form-item__content {
 	  margin-left: 120px;
 	}
 	
-	.add-update-preview .el-input /deep/ .el-input__inner {
+	.add-update-preview .el-input ::v-deep .el-input__inner {
 	  padding: 0 12px;
 	  color: #666;
 	  font-size: 14px;
@@ -413,7 +408,7 @@
 	  min-width: 300px;
 	  height: 40px;
 	}
-	.add-update-preview .el-input-number /deep/ .el-input__inner {
+	.add-update-preview .el-input-number ::v-deep .el-input__inner {
 		text-align: left;
 	  padding: 0 12px;
 	  color: #666;
@@ -429,14 +424,14 @@
 	  min-width: 300px;
 	  height: 40px;
 	}
-	.add-update-preview .el-input-number /deep/ .el-input-number__decrease {
+	.add-update-preview .el-input-number ::v-deep .el-input-number__decrease {
 		display: none;
 	}
-	.add-update-preview .el-input-number /deep/ .el-input-number__increase {
+	.add-update-preview .el-input-number ::v-deep .el-input-number__increase {
 		display: none;
 	}
 	
-	.add-update-preview .el-select /deep/ .el-input__inner {
+	.add-update-preview .el-select ::v-deep .el-input__inner {
 	  border-radius: 0px;
 	  padding: 0 10px;
 	  color: #666;
@@ -450,7 +445,7 @@
 	  height: 40px;
 	}
 	
-	.add-update-preview .el-date-editor /deep/ .el-input__inner {
+	.add-update-preview .el-date-editor ::v-deep .el-input__inner {
 	  border-radius: 0px;
 	  padding: 0 10px 0 30px;
 	  color: #666;
@@ -464,7 +459,7 @@
 	  height: 40px;
 	}
 	
-	.add-update-preview /deep/ .el-upload--picture-card {
+	.add-update-preview ::v-deep .el-upload--picture-card {
 		background: transparent;
 		border: 0;
 		border-radius: 0;
@@ -474,7 +469,7 @@
 		vertical-align: middle;
 	}
 	
-	.add-update-preview /deep/ .upload .upload-img {
+	.add-update-preview ::v-deep .upload .upload-img {
 	  cursor: pointer;
 	  color: #999;
 	  font-size: 24px;
@@ -490,7 +485,7 @@
 	  height: 54px;
 	}
 	
-	.add-update-preview /deep/ .el-upload-list .el-upload-list__item {
+	.add-update-preview ::v-deep .el-upload-list .el-upload-list__item {
 	  cursor: pointer;
 	  color: #999;
 	  font-size: 24px;
@@ -506,7 +501,7 @@
 	  height: 54px;
 	}
 	
-	.add-update-preview /deep/ .el-upload .el-icon-plus {
+	.add-update-preview ::v-deep .el-upload .el-icon-plus {
 	  cursor: pointer;
 	  color: #999;
 	  font-size: 24px;
@@ -522,7 +517,7 @@
 	  height: 54px;
 	}
 	
-	.add-update-preview .el-textarea /deep/ .el-textarea__inner {
+	.add-update-preview .el-textarea ::v-deep .el-textarea__inner {
 	  border: 1px solid #ddd;
 	  border-radius: 0px;
 	  padding: 12px;

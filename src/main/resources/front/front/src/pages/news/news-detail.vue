@@ -275,7 +275,7 @@
 		width: 900px;
 		margin: 0 auto;
 	}
-	.editor /deep/ .avatar-uploader {
+	.editor ::v-deep .avatar-uploader {
 		height: 0;
 		line-height: 0;
 	}

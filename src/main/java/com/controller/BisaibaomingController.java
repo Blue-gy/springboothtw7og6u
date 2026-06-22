@@ -140,6 +140,7 @@ public class BisaibaomingController {
     @RequestMapping("/save")
     public R save(@RequestBody BisaibaomingEntity bisaibaoming, HttpServletRequest request){
     	//ValidatorUtils.validateEntity(bisaibaoming);
+    	bisaibaoming.setSfsh("通过");
         bisaibaomingService.insert(bisaibaoming);
         return R.ok();
     }
@@ -150,6 +151,7 @@ public class BisaibaomingController {
     @RequestMapping("/add")
     public R add(@RequestBody BisaibaomingEntity bisaibaoming, HttpServletRequest request){
     	//ValidatorUtils.validateEntity(bisaibaoming);
+    	bisaibaoming.setSfsh("通过");
         bisaibaomingService.insert(bisaibaoming);
         return R.ok();
     }

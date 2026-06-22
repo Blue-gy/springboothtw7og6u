@@ -451,7 +451,7 @@ import shebeiweixiujiluCrossAddOrUpdate from "../shebeiweixiujilu/add-or-update"
 	}
 	
 	// form
-	.center-form-pv .el-input /deep/ .el-input__inner {
+	.center-form-pv .el-input ::v-deep .el-input__inner {
 				border: 2px solid #c9d0dc;
 				border-radius: 20px;
 				padding: 0 12px;
@@ -461,7 +461,7 @@ import shebeiweixiujiluCrossAddOrUpdate from "../shebeiweixiujilu/add-or-update"
 				height: 40px;
 			}
 	
-	.center-form-pv .el-select /deep/ .el-input__inner {
+	.center-form-pv .el-select ::v-deep .el-input__inner {
 				border: 2px solid #c9d0dc;
 				border-radius: 20px;
 				padding: 0 10px;
@@ -472,7 +472,7 @@ import shebeiweixiujiluCrossAddOrUpdate from "../shebeiweixiujilu/add-or-update"
 				height: 40px;
 			}
 	
-	.center-form-pv .el-date-editor /deep/ .el-input__inner {
+	.center-form-pv .el-date-editor ::v-deep .el-input__inner {
 				border: 2px solid #c9d0dc;
 				border-radius: 20px;
 				padding: 0 10px 0 30px;
@@ -577,18 +577,18 @@ import shebeiweixiujiluCrossAddOrUpdate from "../shebeiweixiujilu/add-or-update"
 			}
 	
 	// table
-	.el-table /deep/ .el-table__header-wrapper thead {
+	.el-table ::v-deep .el-table__header-wrapper thead {
 				color: #999;
 				background: red;
 				font-weight: 500;
 				width: 100%;
 			}
 	
-	.el-table /deep/ .el-table__header-wrapper thead tr {
+	.el-table ::v-deep .el-table__header-wrapper thead tr {
 				background: #eef3f7;
 			}
 	
-	.el-table /deep/ .el-table__header-wrapper thead tr th {
+	.el-table ::v-deep .el-table__header-wrapper thead tr th {
 				padding: 6px 0;
 				color: #808080;
 				background: #eef3f7;
@@ -599,7 +599,7 @@ import shebeiweixiujiluCrossAddOrUpdate from "../shebeiweixiujilu/add-or-update"
 				text-align: left;
 			}
 
-	.el-table /deep/ .el-table__header-wrapper thead tr th .cell {
+	.el-table ::v-deep .el-table__header-wrapper thead tr th .cell {
 				padding: 0 10px;
 				word-wrap: normal;
 				word-break: break-all;
@@ -614,15 +614,15 @@ import shebeiweixiujiluCrossAddOrUpdate from "../shebeiweixiujilu/add-or-update"
 			}
 
 	
-	.el-table /deep/ .el-table__body-wrapper tbody {
+	.el-table ::v-deep .el-table__body-wrapper tbody {
 				width: 100%;
 			}
 
-	.el-table /deep/ .el-table__body-wrapper tbody tr {
+	.el-table ::v-deep .el-table__body-wrapper tbody tr {
 				background: #fff;
 			}
 	
-	.el-table /deep/ .el-table__body-wrapper tbody tr td {
+	.el-table ::v-deep .el-table__body-wrapper tbody tr td {
 				padding: 4px 0;
 				color: #999;
 				background: #fff;
@@ -633,7 +633,7 @@ import shebeiweixiujiluCrossAddOrUpdate from "../shebeiweixiujilu/add-or-update"
 			}
 	
 		
-	.el-table /deep/ .el-table__body-wrapper tbody tr:hover td {
+	.el-table ::v-deep .el-table__body-wrapper tbody tr:hover td {
 				padding: 4px 0;
 				color: #444;
 				background: #f6f6f6;
@@ -643,7 +643,7 @@ import shebeiweixiujiluCrossAddOrUpdate from "../shebeiweixiujilu/add-or-update"
 				text-align: left;
 			}
 	
-	.el-table /deep/ .el-table__body-wrapper tbody tr td {
+	.el-table ::v-deep .el-table__body-wrapper tbody tr td {
 				padding: 4px 0;
 				color: #999;
 				background: #fff;
@@ -653,7 +653,7 @@ import shebeiweixiujiluCrossAddOrUpdate from "../shebeiweixiujilu/add-or-update"
 				text-align: left;
 			}
 
-	.el-table /deep/ .el-table__body-wrapper tbody tr td .cell {
+	.el-table ::v-deep .el-table__body-wrapper tbody tr td .cell {
 				padding: 0 10px;
 				overflow: hidden;
 				word-break: break-all;
@@ -662,7 +662,7 @@ import shebeiweixiujiluCrossAddOrUpdate from "../shebeiweixiujilu/add-or-update"
 				text-overflow: ellipsis;
 			}
 	
-	.el-table /deep/ .el-table__body-wrapper tbody tr td .view {
+	.el-table ::v-deep .el-table__body-wrapper tbody tr td .view {
 				border: 2px solid rgb(212, 216, 223);
 				cursor: pointer;
 				border-radius: 4px;
@@ -676,18 +676,18 @@ import shebeiweixiujiluCrossAddOrUpdate from "../shebeiweixiujilu/add-or-update"
 				height: 32px;
 			}
 	
-	.el-table /deep/ .el-table__body-wrapper tbody tr td .view:hover {
+	.el-table ::v-deep .el-table__body-wrapper tbody tr td .view:hover {
 				border: 1px solid #409eff;
 				color: #409eff;
 			}
 	
-	.el-table /deep/ .el-table__body-wrapper tbody tr td .add {
+	.el-table ::v-deep .el-table__body-wrapper tbody tr td .add {
 			}
 	
-	.el-table /deep/ .el-table__body-wrapper tbody tr td .add:hover {
+	.el-table ::v-deep .el-table__body-wrapper tbody tr td .add:hover {
 			}
 	
-	.el-table /deep/ .el-table__body-wrapper tbody tr td .edit {
+	.el-table ::v-deep .el-table__body-wrapper tbody tr td .edit {
 				border: 2px solid rgb(212, 216, 223);
 				cursor: pointer;
 				border-radius: 4px;
@@ -701,12 +701,12 @@ import shebeiweixiujiluCrossAddOrUpdate from "../shebeiweixiujilu/add-or-update"
 				height: 32px;
 			}
 	
-	.el-table /deep/ .el-table__body-wrapper tbody tr td .edit:hover {
+	.el-table ::v-deep .el-table__body-wrapper tbody tr td .edit:hover {
 				border: 1px solid #409eff;
 				color: #409eff;
 			}
 	
-	.el-table /deep/ .el-table__body-wrapper tbody tr td .del {
+	.el-table ::v-deep .el-table__body-wrapper tbody tr td .del {
 				border: 2px solid rgb(212, 216, 223);
 				cursor: pointer;
 				border-radius: 4px;
@@ -720,12 +720,12 @@ import shebeiweixiujiluCrossAddOrUpdate from "../shebeiweixiujilu/add-or-update"
 				height: 32px;
 			}
 	
-	.el-table /deep/ .el-table__body-wrapper tbody tr td .del:hover {
+	.el-table ::v-deep .el-table__body-wrapper tbody tr td .del:hover {
 				border: 1px solid #409eff;
 				color:  #409eff;
 			}
 	
-	.el-table /deep/ .el-table__body-wrapper tbody tr td .btn8 {
+	.el-table ::v-deep .el-table__body-wrapper tbody tr td .btn8 {
 				border: 2px solid rgb(212, 216, 223);
 				cursor: pointer;
 				border-radius: 4px;
@@ -739,13 +739,13 @@ import shebeiweixiujiluCrossAddOrUpdate from "../shebeiweixiujilu/add-or-update"
 				height: 40px;
 			}
 	
-	.el-table /deep/ .el-table__body-wrapper tbody tr td .btn8:hover {
+	.el-table ::v-deep .el-table__body-wrapper tbody tr td .btn8:hover {
 				border: 1px solid #409eff;
 				color: #409eff;
 			}
 	
 	// pagination
-	.main-content .el-pagination /deep/ .el-pagination__total {
+	.main-content .el-pagination ::v-deep .el-pagination__total {
 				margin: 0 10px 0 0;
 				color: #666;
 				font-weight: 400;
@@ -756,7 +756,7 @@ import shebeiweixiujiluCrossAddOrUpdate from "../shebeiweixiujilu/add-or-update"
 				height: 28px;
 			}
 	
-	.main-content .el-pagination /deep/ .btn-prev {
+	.main-content .el-pagination ::v-deep .btn-prev {
 				border: none;
 				border-radius: 2px;
 				padding: 0;
@@ -771,7 +771,7 @@ import shebeiweixiujiluCrossAddOrUpdate from "../shebeiweixiujilu/add-or-update"
 				height: 28px;
 			}
 	
-	.main-content .el-pagination /deep/ .btn-next {
+	.main-content .el-pagination ::v-deep .btn-next {
 				border: none;
 				border-radius: 2px;
 				padding: 0;
@@ -786,7 +786,7 @@ import shebeiweixiujiluCrossAddOrUpdate from "../shebeiweixiujilu/add-or-update"
 				height: 28px;
 			}
 	
-	.main-content .el-pagination /deep/ .btn-prev:disabled {
+	.main-content .el-pagination ::v-deep .btn-prev:disabled {
 				border: none;
 				cursor: not-allowed;
 				border-radius: 2px;
@@ -801,7 +801,7 @@ import shebeiweixiujiluCrossAddOrUpdate from "../shebeiweixiujilu/add-or-update"
 				height: 28px;
 			}
 	
-	.main-content .el-pagination /deep/ .btn-next:disabled {
+	.main-content .el-pagination ::v-deep .btn-next:disabled {
 				border: none;
 				cursor: not-allowed;
 				border-radius: 2px;
@@ -816,14 +816,14 @@ import shebeiweixiujiluCrossAddOrUpdate from "../shebeiweixiujilu/add-or-update"
 				height: 28px;
 			}
 
-	.main-content .el-pagination /deep/ .el-pager {
+	.main-content .el-pagination ::v-deep .el-pager {
 				padding: 0;
 				margin: 0;
 				display: inline-block;
 				vertical-align: top;
 			}
 
-	.main-content .el-pagination /deep/ .el-pager .number {
+	.main-content .el-pagination ::v-deep .el-pager .number {
 				cursor: pointer;
 				padding: 0 4px;
 				margin: 0 5px;
@@ -839,7 +839,7 @@ import shebeiweixiujiluCrossAddOrUpdate from "../shebeiweixiujilu/add-or-update"
 				height: 28px;
 			}
 	
-	.main-content .el-pagination /deep/ .el-pager .number:hover {
+	.main-content .el-pagination ::v-deep .el-pager .number:hover {
 				cursor: pointer;
 				padding: 0 4px;
 				margin: 0 5px;
@@ -855,7 +855,7 @@ import shebeiweixiujiluCrossAddOrUpdate from "../shebeiweixiujilu/add-or-update"
 				height: 28px;
 			}
 	
-	.main-content .el-pagination /deep/ .el-pager .number.active {
+	.main-content .el-pagination ::v-deep .el-pager .number.active {
 				cursor: default;
 				padding: 0 4px;
 				margin: 0 5px;
@@ -871,7 +871,7 @@ import shebeiweixiujiluCrossAddOrUpdate from "../shebeiweixiujilu/add-or-update"
 				height: 28px;
 			}
 	
-	.main-content .el-pagination /deep/ .el-pagination__sizes {
+	.main-content .el-pagination ::v-deep .el-pagination__sizes {
 				display: inline-block;
 				vertical-align: top;
 				font-size: 13px;
@@ -879,13 +879,13 @@ import shebeiweixiujiluCrossAddOrUpdate from "../shebeiweixiujilu/add-or-update"
 				height: 28px;
 			}
 	
-	.main-content .el-pagination /deep/ .el-pagination__sizes .el-input {
+	.main-content .el-pagination ::v-deep .el-pagination__sizes .el-input {
 				margin: 0 5px;
 				width: 100px;
 				position: relative;
 			}
 	
-	.main-content .el-pagination /deep/ .el-pagination__sizes .el-input .el-input__inner {
+	.main-content .el-pagination ::v-deep .el-pagination__sizes .el-input .el-input__inner {
 				border: 1px solid #DCDFE6;
 				cursor: pointer;
 				padding: 0 25px 0 8px;
@@ -901,14 +901,14 @@ import shebeiweixiujiluCrossAddOrUpdate from "../shebeiweixiujilu/add-or-update"
 				height: 28px;
 			}
 	
-	.main-content .el-pagination /deep/ .el-pagination__sizes .el-input span.el-input__suffix {
+	.main-content .el-pagination ::v-deep .el-pagination__sizes .el-input span.el-input__suffix {
 				top: 0;
 				position: absolute;
 				right: 0;
 				height: 100%;
 			}
 	
-	.main-content .el-pagination /deep/ .el-pagination__sizes .el-input .el-input__suffix .el-select__caret {
+	.main-content .el-pagination ::v-deep .el-pagination__sizes .el-input .el-input__suffix .el-select__caret {
 				cursor: pointer;
 				color: #C0C4CC;
 				width: 25px;
@@ -917,7 +917,7 @@ import shebeiweixiujiluCrossAddOrUpdate from "../shebeiweixiujilu/add-or-update"
 				text-align: center;
 			}
 	
-	.main-content .el-pagination /deep/ .el-pagination__jump {
+	.main-content .el-pagination ::v-deep .el-pagination__jump {
 				margin: 0 0 0 24px;
 				color: #606266;
 				display: inline-block;
@@ -927,7 +927,7 @@ import shebeiweixiujiluCrossAddOrUpdate from "../shebeiweixiujilu/add-or-update"
 				height: 28px;
 			}
 	
-	.main-content .el-pagination /deep/ .el-pagination__jump .el-input {
+	.main-content .el-pagination ::v-deep .el-pagination__jump .el-input {
 				border-radius: 3px;
 				padding: 0 2px;
 				margin: 0 2px;
@@ -940,7 +940,7 @@ import shebeiweixiujiluCrossAddOrUpdate from "../shebeiweixiujilu/add-or-update"
 				height: 28px;
 			}
 	
-	.main-content .el-pagination /deep/ .el-pagination__jump .el-input .el-input__inner {
+	.main-content .el-pagination ::v-deep .el-pagination__jump .el-input .el-input__inner {
 				border: 1px solid #DCDFE6;
 				cursor: pointer;
 				padding: 0 3px;
@@ -1041,7 +1041,7 @@ import shebeiweixiujiluCrossAddOrUpdate from "../shebeiweixiujilu/add-or-update"
 				align-items: center;
 				height: 30px;
 			}
-	.main-content .el-table .el-switch /deep/ .el-switch__label--left {
+	.main-content .el-table .el-switch ::v-deep .el-switch__label--left {
 				cursor: pointer;
 				margin: 0 10px 0 0;
 				color: #333;
@@ -1052,7 +1052,7 @@ import shebeiweixiujiluCrossAddOrUpdate from "../shebeiweixiujilu/add-or-update"
 				transition: .2s;
 				height: 30px;
 			}
-	.main-content .el-table .el-switch /deep/ .el-switch__label--right {
+	.main-content .el-table .el-switch ::v-deep .el-switch__label--right {
 				cursor: pointer;
 				margin: 0 0 0 10px;
 				color: #333;
@@ -1063,7 +1063,7 @@ import shebeiweixiujiluCrossAddOrUpdate from "../shebeiweixiujilu/add-or-update"
 				transition: .2s;
 				height: 30px;
 			}
-	.main-content .el-table .el-switch /deep/ .el-switch__core {
+	.main-content .el-table .el-switch ::v-deep .el-switch__core {
 				border: 1px solid #2964af;
 				cursor: pointer;
 				border-radius: 15px;
@@ -1076,7 +1076,7 @@ import shebeiweixiujiluCrossAddOrUpdate from "../shebeiweixiujilu/add-or-update"
 				transition: border-color .3s,background-color .3s;
 				height: 30px;
 			}
-	.main-content .el-table .el-switch /deep/ .el-switch__core::after {
+	.main-content .el-table .el-switch ::v-deep .el-switch__core::after {
 				border-radius: 100%;
 				top: 1px;
 				left: 1px;
@@ -1086,19 +1086,19 @@ import shebeiweixiujiluCrossAddOrUpdate from "../shebeiweixiujilu/add-or-update"
 				transition: all .3s;
 				height: 26px;
 			}
-	.main-content .el-table .el-switch.is-checked /deep/ .el-switch__core::after {
+	.main-content .el-table .el-switch.is-checked ::v-deep .el-switch__core::after {
 				margin: 0 0 0 -27px;
 				left: 100%;
 			}
 	
-	.main-content .el-table .el-rate /deep/ .el-rate__item {
+	.main-content .el-table .el-rate ::v-deep .el-rate__item {
 				cursor: pointer;
 				display: inline-block;
 				vertical-align: middle;
 				font-size: 0;
 				position: relative;
 			}
-	.main-content .el-table .el-rate /deep/ .el-rate__item .el-rate__icon {
+	.main-content .el-table .el-rate ::v-deep .el-rate__item .el-rate__icon {
 				margin: 0 3px;
 				display: inline-block;
 				font-size: 18px;

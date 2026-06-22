@@ -511,6 +511,8 @@ CREATE TABLE `kechengxinxi`  (
   `clicktime` datetime(0) DEFAULT NULL COMMENT '最近点击时间',
   `discussnum` int(11) DEFAULT 0 COMMENT '评论数',
   `storeupnum` int(11) DEFAULT 0 COMMENT '收藏数',
+  `renshuxianzhi` int(11) DEFAULT NULL COMMENT '人数限制',
+  `yiyuyuerenshu` int(11) DEFAULT 0 COMMENT '已预约人数',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 49 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '课程信息' ROW_FORMAT = Dynamic;
 

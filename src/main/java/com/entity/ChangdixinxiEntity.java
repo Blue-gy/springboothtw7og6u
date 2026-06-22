@@ -24,8 +24,8 @@ import com.baomidou.mybatisplus.enums.IdType;
 /**
  * 场地信息
  * 数据库通用操作实体类（普通增删改查）
- * @author 
- * @email 
+ * @author
+ * @email
  * @date 2030-02-26 18:34:49
  */
 @TableName("changdixinxi")
@@ -34,9 +34,9 @@ public class ChangdixinxiEntity<T> implements Serializable {
 
 
 	public ChangdixinxiEntity() {
-		
+
 	}
-	
+
 	public ChangdixinxiEntity(T t) {
 		try {
 			BeanUtils.copyProperties(this, t);
@@ -45,7 +45,7 @@ public class ChangdixinxiEntity<T> implements Serializable {
 			e.printStackTrace();
 		}
 	}
-	
+
 	/**
 	 * 主键id
 	 */
@@ -54,58 +54,70 @@ public class ChangdixinxiEntity<T> implements Serializable {
 	/**
 	 * 场地名称
 	 */
-					
+
 	private String changdimingcheng;
-	
+
 	/**
 	 * 场地图片
 	 */
-					
+
 	private String changditupian;
-	
+
 	/**
 	 * 场地介绍
 	 */
-					
+
 	private String changdijieshao;
-	
+
 	/**
 	 * 场地地址
 	 */
-					
+
 	private String changdidizhi;
-	
+
 	/**
 	 * 场地设施
 	 */
-					
+
 	private String changdisheshi;
-	
+
 	/**
 	 * 开放时间
 	 */
-					
+
 	private String kaifangshijian;
-	
+
 	/**
 	 * 场地价格
 	 */
-					
+
 	private Integer changdijiage;
-	
+
 	/**
 	 * 评论数
 	 */
-					
+
 	private Integer discussnum;
-	
+
 	/**
 	 * 收藏数
 	 */
-					
+
 	private Integer storeupnum;
-	
-	
+
+	/**
+	 * 人数限制
+	 */
+
+	private Integer renshuxianzhi;
+
+	/**
+	 * 已预约人数
+	 */
+
+	private Integer yiyuyuerenshu;
+
+
 	@JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd HH:mm:ss")
 	@DateTimeFormat
 	private Date addtime;
@@ -231,6 +243,30 @@ public class ChangdixinxiEntity<T> implements Serializable {
 	 */
 	public Integer getStoreupnum() {
 		return storeupnum;
+	}
+	/**
+	 * 设置：人数限制
+	 */
+	public void setRenshuxianzhi(Integer renshuxianzhi) {
+		this.renshuxianzhi = renshuxianzhi;
+	}
+	/**
+	 * 获取：人数限制
+	 */
+	public Integer getRenshuxianzhi() {
+		return renshuxianzhi;
+	}
+	/**
+	 * 设置：已预约人数
+	 */
+	public void setYiyuyuerenshu(Integer yiyuyuerenshu) {
+		this.yiyuyuerenshu = yiyuyuerenshu;
+	}
+	/**
+	 * 获取：已预约人数
+	 */
+	public Integer getYiyuyuerenshu() {
+		return yiyuyuerenshu;
 	}
 
 }

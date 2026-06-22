@@ -34,3 +34,14 @@ build/
 .classpath
 .project
 .settings/
+
+### Node ###
+node_modules/
+**/node_modules/
+
+### Build artifacts ###
+*.map
+*.bak
+
+### Upload files (large binaries) ###
+src/main/resources/static/upload/

@@ -108,9 +108,15 @@ public class ZulinjiluEntity<T> implements Serializable {
 	private String xingming;
 	
 	/**
+	 * 归还状态
+	 */
+
+	private String guihaizhuangtai;
+
+	/**
 	 * 是否审核
 	 */
-					
+
 	private String sfsh;
 	
 	/**
@@ -246,6 +252,19 @@ public class ZulinjiluEntity<T> implements Serializable {
 	public String getXingming() {
 		return xingming;
 	}
+	/**
+	 * 设置：归还状态
+	 */
+	public void setGuihaizhuangtai(String guihaizhuangtai) {
+		this.guihaizhuangtai = guihaizhuangtai;
+	}
+	/**
+	 * 获取：归还状态
+	 */
+	public String getGuihaizhuangtai() {
+		return guihaizhuangtai;
+	}
+
 	/**
 	 * 设置：是否审核
 	 */

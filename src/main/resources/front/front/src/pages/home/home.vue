@@ -267,7 +267,7 @@ import Swiper from "swiper";
 <style rel="stylesheet/scss" lang="scss" scoped>
 	.home-preview {
 		// -------- search --------
-		.search .select /deep/ .el-input__inner {
+		.search .select ::v-deep .el-input__inner {
 			border: 0px solid #ddd;
 			border-radius: 0px;
 			padding: 0 30px 0 10px;
@@ -277,7 +277,7 @@ import Swiper from "swiper";
 			height: 40px;
 		}
 		
-		.search .input /deep/ .el-input__inner {
+		.search .input ::v-deep .el-input__inner {
 			border: 0px solid #ddd;
 			border-radius: 0px;
 			padding: 0 10px;

@@ -17,6 +17,9 @@ export default {
     height: 100%;
     margin: 0;
     padding: 0;
+    background: #f5f6f8;
+    font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
+    color: #333;
   }
   [v-cloak]{
     display:none

@@ -140,6 +140,7 @@ public class BaominghuodongController {
     @RequestMapping("/save")
     public R save(@RequestBody BaominghuodongEntity baominghuodong, HttpServletRequest request){
     	//ValidatorUtils.validateEntity(baominghuodong);
+    	baominghuodong.setSfsh("通过");
         baominghuodongService.insert(baominghuodong);
         return R.ok();
     }
@@ -150,6 +151,7 @@ public class BaominghuodongController {
     @RequestMapping("/add")
     public R add(@RequestBody BaominghuodongEntity baominghuodong, HttpServletRequest request){
     	//ValidatorUtils.validateEntity(baominghuodong);
+    	baominghuodong.setSfsh("通过");
         baominghuodongService.insert(baominghuodong);
         return R.ok();
     }

@@ -225,18 +225,18 @@
 		width: auto;
 	}
 
-	.breadcrumb-preview .el-breadcrumb /deep/ .el-breadcrumb__separator {
+	.breadcrumb-preview .el-breadcrumb ::v-deep .el-breadcrumb__separator {
 		margin: 0 9px;
 		color: #ccc;
 		font-weight: 500;
 	}
 	
-	.breadcrumb-preview .el-breadcrumb .item1 /deep/ .el-breadcrumb__inner a {
+	.breadcrumb-preview .el-breadcrumb .item1 ::v-deep .el-breadcrumb__inner a {
 		color: #333;
 		display: inline-block;
 	}
 	
-	.breadcrumb-preview .el-breadcrumb .item2 /deep/ .el-breadcrumb__inner a {
+	.breadcrumb-preview .el-breadcrumb .item2 ::v-deep .el-breadcrumb__inner a {
 		color: #666;
 		display: inline-block;
 	}
@@ -351,7 +351,7 @@
 		width: 100%;
 	}
 	
-	.list-form-pv .el-input /deep/ .el-input__inner {
+	.list-form-pv .el-input ::v-deep .el-input__inner {
 		padding: 0 10px;
 		margin: 0;
 		color: #333;
@@ -367,10 +367,10 @@
 		height: 36px;
 	}
 	
-	.list-form-pv .el-select /deep/ .el-input__inner {
+	.list-form-pv .el-select ::v-deep .el-input__inner {
 	}
 	
-	.list-form-pv .el-date-editor /deep/ .el-input__inner {
+	.list-form-pv .el-date-editor ::v-deep .el-input__inner {
 		padding: 0 30px;
 		margin: 0;
 		color: #333;
@@ -411,7 +411,7 @@
 		transition: 0.3s;
 	}
 	
-	#pagination.el-pagination /deep/ .el-pagination__total {
+	#pagination.el-pagination ::v-deep .el-pagination__total {
 		margin: 0 10px 0 0;
 		color: #666;
 		font-weight: 400;
@@ -422,7 +422,7 @@
 		height: 28px;
 	}
 	
-	#pagination.el-pagination /deep/ .btn-prev {
+	#pagination.el-pagination ::v-deep .btn-prev {
 		border: none;
 		border-radius: 2px;
 		padding: 0;
@@ -437,7 +437,7 @@
 		height: 28px;
 	}
 	
-	#pagination.el-pagination /deep/ .btn-next {
+	#pagination.el-pagination ::v-deep .btn-next {
 		border: none;
 		border-radius: 2px;
 		padding: 0;
@@ -452,7 +452,7 @@
 		height: 28px;
 	}
 	
-	#pagination.el-pagination /deep/ .btn-prev:disabled {
+	#pagination.el-pagination ::v-deep .btn-prev:disabled {
 		border: none;
 		cursor: not-allowed;
 		border-radius: 2px;
@@ -467,7 +467,7 @@
 		height: 28px;
 	}
 	
-	#pagination.el-pagination /deep/ .btn-next:disabled {
+	#pagination.el-pagination ::v-deep .btn-next:disabled {
 		border: none;
 		cursor: not-allowed;
 		border-radius: 2px;
@@ -482,14 +482,14 @@
 		height: 28px;
 	}
 	
-	#pagination.el-pagination /deep/ .el-pager {
+	#pagination.el-pagination ::v-deep .el-pager {
 		padding: 0;
 		margin: 0;
 		display: inline-block;
 		vertical-align: top;
 	}
 	
-	#pagination.el-pagination /deep/ .el-pager .number {
+	#pagination.el-pagination ::v-deep .el-pager .number {
 		cursor: pointer;
 		padding: 0 4px;
 		margin: 0 5px;
@@ -505,7 +505,7 @@
 		height: 28px;
 	}
 	
-	#pagination.el-pagination /deep/ .el-pager .number:hover {
+	#pagination.el-pagination ::v-deep .el-pager .number:hover {
 		cursor: pointer;
 		padding: 0 4px;
 		margin: 0 5px;
@@ -521,7 +521,7 @@
 		height: 28px;
 	}
 	
-	#pagination.el-pagination /deep/ .el-pager .number.active {
+	#pagination.el-pagination ::v-deep .el-pager .number.active {
 		cursor: default;
 		padding: 0 4px;
 		margin: 0 5px;
@@ -537,7 +537,7 @@
 		height: 28px;
 	}
 	
-	#pagination.el-pagination /deep/ .el-pagination__sizes {
+	#pagination.el-pagination ::v-deep .el-pagination__sizes {
 		display: inline-block;
 		vertical-align: top;
 		font-size: 13px;
@@ -545,13 +545,13 @@
 		height: 28px;
 	}
 	
-	#pagination.el-pagination /deep/ .el-pagination__sizes .el-input {
+	#pagination.el-pagination ::v-deep .el-pagination__sizes .el-input {
 		margin: 0 5px;
 		width: 100px;
 		position: relative;
 	}
 	
-	#pagination.el-pagination /deep/ .el-pagination__sizes .el-input .el-input__inner {
+	#pagination.el-pagination ::v-deep .el-pagination__sizes .el-input .el-input__inner {
 		border: 1px solid #DCDFE6;
 		cursor: pointer;
 		padding: 0 25px 0 8px;
@@ -567,14 +567,14 @@
 		height: 28px;
 	}
 	
-	#pagination.el-pagination /deep/ .el-pagination__sizes .el-input span.el-input__suffix {
+	#pagination.el-pagination ::v-deep .el-pagination__sizes .el-input span.el-input__suffix {
 		top: 0;
 		position: absolute;
 		right: 0;
 		height: 100%;
 	}
 	
-	#pagination.el-pagination /deep/ .el-pagination__sizes .el-input .el-input__suffix .el-select__caret {
+	#pagination.el-pagination ::v-deep .el-pagination__sizes .el-input .el-input__suffix .el-select__caret {
 		cursor: pointer;
 		color: #C0C4CC;
 		width: 25px;
@@ -583,7 +583,7 @@
 		text-align: center;
 	}
 	
-	#pagination.el-pagination /deep/ .el-pagination__jump {
+	#pagination.el-pagination ::v-deep .el-pagination__jump {
 		margin: 0 0 0 24px;
 		color: #606266;
 		display: inline-block;
@@ -593,7 +593,7 @@
 		height: 28px;
 	}
 	
-	#pagination.el-pagination /deep/ .el-pagination__jump .el-input {
+	#pagination.el-pagination ::v-deep .el-pagination__jump .el-input {
 		border-radius: 3px;
 		padding: 0 2px;
 		margin: 0 2px;
@@ -606,7 +606,7 @@
 		height: 28px;
 	}
 	
-	#pagination.el-pagination /deep/ .el-pagination__jump .el-input .el-input__inner {
+	#pagination.el-pagination ::v-deep .el-pagination__jump .el-input .el-input__inner {
 		border: 1px solid #DCDFE6;
 		cursor: pointer;
 		padding: 0 3px;

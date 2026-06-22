@@ -140,6 +140,7 @@ public class ZulinjiluController {
     @RequestMapping("/save")
     public R save(@RequestBody ZulinjiluEntity zulinjilu, HttpServletRequest request){
     	//ValidatorUtils.validateEntity(zulinjilu);
+    	zulinjilu.setSfsh("通过");
         zulinjiluService.insert(zulinjilu);
         return R.ok();
     }
@@ -150,6 +151,7 @@ public class ZulinjiluController {
     @RequestMapping("/add")
     public R add(@RequestBody ZulinjiluEntity zulinjilu, HttpServletRequest request){
     	//ValidatorUtils.validateEntity(zulinjilu);
+    	zulinjilu.setSfsh("通过");
         zulinjiluService.insert(zulinjilu);
         return R.ok();
     }

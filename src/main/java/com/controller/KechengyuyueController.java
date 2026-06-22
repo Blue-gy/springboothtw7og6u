@@ -28,9 +28,11 @@ import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.annotation.IgnoreAuth;
 
 import com.entity.KechengyuyueEntity;
+import com.entity.KechengxinxiEntity;
 import com.entity.view.KechengyuyueView;
 
 import com.service.KechengyuyueService;
+import com.service.KechengxinxiService;
 import com.service.TokenService;
 import com.utils.PageUtils;
 import com.utils.R;
@@ -51,6 +53,9 @@ import java.io.IOException;
 public class KechengyuyueController {
     @Autowired
     private KechengyuyueService kechengyuyueService;
+
+    @Autowired
+    private KechengxinxiService kechengxinxiService;
 
 
 
@@ -138,20 +143,78 @@ public class KechengyuyueController {
      * 后端保存
      */
     @RequestMapping("/save")
+    @Transactional
     public R save(@RequestBody KechengyuyueEntity kechengyuyue, HttpServletRequest request){
     	//ValidatorUtils.validateEntity(kechengyuyue);
+    	// 校验课程人数限制
+    	R capacityCheck = checkCourseCapacity(kechengyuyue.getKechengmingcheng());
+    	if (capacityCheck != null) return capacityCheck;
+    	kechengyuyue.setSfsh("通过");
         kechengyuyueService.insert(kechengyuyue);
+        // 更新已预约人数
+        updateReservedCount(kechengyuyue.getKechengmingcheng(), 1);
         return R.ok();
     }
-    
+
     /**
      * 前端保存
      */
     @RequestMapping("/add")
+    @Transactional
     public R add(@RequestBody KechengyuyueEntity kechengyuyue, HttpServletRequest request){
     	//ValidatorUtils.validateEntity(kechengyuyue);
+    	// 校验课程人数限制
+    	R capacityCheck = checkCourseCapacity(kechengyuyue.getKechengmingcheng());
+    	if (capacityCheck != null) return capacityCheck;
+    	kechengyuyue.setSfsh("通过");
         kechengyuyueService.insert(kechengyuyue);
+        // 更新已预约人数
+        updateReservedCount(kechengyuyue.getKechengmingcheng(), 1);
         return R.ok();
+    }
+
+    /**
+     * 校验课程人数限制
+     * @return null 表示通过，R 表示校验失败
+     */
+    private R checkCourseCapacity(String kechengmingcheng) {
+        if (kechengmingcheng == null || kechengmingcheng.isEmpty()) {
+            return null;
+        }
+        EntityWrapper<KechengxinxiEntity> wrapper = new EntityWrapper<>();
+        wrapper.eq("kechengmingcheng", kechengmingcheng);
+        KechengxinxiEntity course = kechengxinxiService.selectOne(wrapper);
+        if (course == null) {
+            return null;
+        }
+        Integer limit = course.getRenshuxianzhi();
+        if (limit == null) {
+            return null; // 未设置限制，不校验
+        }
+        Integer reserved = course.getYiyuyuerenshu();
+        if (reserved == null) reserved = 0;
+        if (reserved >= limit) {
+            return R.error("该课程预约人数已满（上限" + limit + "人，已预约" + reserved + "人）");
+        }
+        return null;
+    }
+
+    /**
+     * 更新课程已预约人数
+     */
+    private void updateReservedCount(String kechengmingcheng, int delta) {
+        if (kechengmingcheng == null || kechengmingcheng.isEmpty()) {
+            return;
+        }
+        EntityWrapper<KechengxinxiEntity> wrapper = new EntityWrapper<>();
+        wrapper.eq("kechengmingcheng", kechengmingcheng);
+        KechengxinxiEntity course = kechengxinxiService.selectOne(wrapper);
+        if (course != null) {
+            Integer current = course.getYiyuyuerenshu();
+            if (current == null) current = 0;
+            course.setYiyuyuerenshu(current + delta);
+            kechengxinxiService.updateById(course);
+        }
     }
 
 

@@ -328,7 +328,7 @@
 		width: auto;
 	}
 	
-	.add-update-preview .el-form-item /deep/ .el-form-item__label {
+	.add-update-preview .el-form-item ::v-deep .el-form-item__label {
 	  padding: 0 10px 0 0;
 	  color: #666;
 	  font-weight: 500;
@@ -338,11 +338,11 @@
 	  text-align: right;
 	}
 	
-	.add-update-preview .el-form-item /deep/ .el-form-item__content {
+	.add-update-preview .el-form-item ::v-deep .el-form-item__content {
 	  margin-left: 120px;
 	}
 	
-	.add-update-preview .el-input /deep/ .el-input__inner {
+	.add-update-preview .el-input ::v-deep .el-input__inner {
 	  padding: 0 12px;
 	  color: #666;
 	  font-size: 14px;
@@ -357,7 +357,7 @@
 	  min-width: 300px;
 	  height: 40px;
 	}
-	.add-update-preview .el-input-number /deep/ .el-input__inner {
+	.add-update-preview .el-input-number ::v-deep .el-input__inner {
 		text-align: left;
 	  padding: 0 12px;
 	  color: #666;
@@ -373,14 +373,14 @@
 	  min-width: 300px;
 	  height: 40px;
 	}
-	.add-update-preview .el-input-number /deep/ .el-input-number__decrease {
+	.add-update-preview .el-input-number ::v-deep .el-input-number__decrease {
 		display: none;
 	}
-	.add-update-preview .el-input-number /deep/ .el-input-number__increase {
+	.add-update-preview .el-input-number ::v-deep .el-input-number__increase {
 		display: none;
 	}
 	
-	.add-update-preview .el-select /deep/ .el-input__inner {
+	.add-update-preview .el-select ::v-deep .el-input__inner {
 	  border-radius: 0px;
 	  padding: 0 10px;
 	  color: #666;
@@ -394,7 +394,7 @@
 	  height: 40px;
 	}
 	
-	.add-update-preview .el-date-editor /deep/ .el-input__inner {
+	.add-update-preview .el-date-editor ::v-deep .el-input__inner {
 	  border-radius: 0px;
 	  padding: 0 10px 0 30px;
 	  color: #666;
@@ -408,7 +408,7 @@
 	  height: 40px;
 	}
 	
-	.add-update-preview /deep/ .el-upload--picture-card {
+	.add-update-preview ::v-deep .el-upload--picture-card {
 		background: transparent;
 		border: 0;
 		border-radius: 0;
@@ -418,7 +418,7 @@
 		vertical-align: middle;
 	}
 	
-	.add-update-preview /deep/ .upload .upload-img {
+	.add-update-preview ::v-deep .upload .upload-img {
 	  cursor: pointer;
 	  color: #999;
 	  font-size: 24px;
@@ -434,7 +434,7 @@
 	  height: 54px;
 	}
 	
-	.add-update-preview /deep/ .el-upload-list .el-upload-list__item {
+	.add-update-preview ::v-deep .el-upload-list .el-upload-list__item {
 	  cursor: pointer;
 	  color: #999;
 	  font-size: 24px;
@@ -450,7 +450,7 @@
 	  height: 54px;
 	}
 	
-	.add-update-preview /deep/ .el-upload .el-icon-plus {
+	.add-update-preview ::v-deep .el-upload .el-icon-plus {
 	  cursor: pointer;
 	  color: #999;
 	  font-size: 24px;
@@ -466,7 +466,7 @@
 	  height: 54px;
 	}
 	
-	.add-update-preview .el-textarea /deep/ .el-textarea__inner {
+	.add-update-preview .el-textarea ::v-deep .el-textarea__inner {
 	  border: 1px solid #ddd;
 	  border-radius: 0px;
 	  padding: 12px;

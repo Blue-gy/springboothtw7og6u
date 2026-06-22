@@ -118,8 +118,20 @@ public class KechengxinxiEntity<T> implements Serializable {
 	 */
 					
 	private Integer storeupnum;
-	
-	
+
+	/**
+	 * 人数限制
+	 */
+
+	private Integer renshuxianzhi;
+
+	/**
+	 * 已预约人数
+	 */
+
+	private Integer yiyuyuerenshu;
+
+
 	@JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd HH:mm:ss")
 	@DateTimeFormat
 	private Date addtime;
@@ -269,6 +281,30 @@ public class KechengxinxiEntity<T> implements Serializable {
 	 */
 	public Integer getStoreupnum() {
 		return storeupnum;
+	}
+	/**
+	 * 设置：人数限制
+	 */
+	public void setRenshuxianzhi(Integer renshuxianzhi) {
+		this.renshuxianzhi = renshuxianzhi;
+	}
+	/**
+	 * 获取：人数限制
+	 */
+	public Integer getRenshuxianzhi() {
+		return renshuxianzhi;
+	}
+	/**
+	 * 设置：已预约人数
+	 */
+	public void setYiyuyuerenshu(Integer yiyuyuerenshu) {
+		this.yiyuyuerenshu = yiyuyuerenshu;
+	}
+	/**
+	 * 获取：已预约人数
+	 */
+	public Integer getYiyuyuerenshu() {
+		return yiyuyuerenshu;
 	}
 
 }

@@ -81,13 +81,12 @@
 
 本项目遵循完整的产品开发流程，包含以下产品文档：
 
-| 文档 | 说明 |
-|------|------|
-| [📋 PRD - 产品需求文档](docs/PRD-Campus-Venue-Booking-System.md) | 完整的产品需求规格（Markdown，526 行） |
-| [📋 PRD - Word版](docs/PRD-Campus-Venue-Booking-System.docx) | 产品需求文档（Word 格式） |
-| [📊 BRD - 商业需求文档](docs/BRD-Business-Requirements-Document.docx) | 商业需求与市场分析 |
-| [📈 竞品分析报告](docs/Competitive-Analysis-Report.docx) | 竞品功能对比与差异化分析 |
-| [🗺 产品路线图](docs/Product-Roadmap.docx) | V1.0/V2.0 版本规划与迭代计划 |
+| 文档 | 格式 | 说明 |
+|------|------|------|
+| 📋 PRD - 产品需求文档 | [Word](docs/PRD-Campus-Venue-Booking-System.docx) | 完整产品需求规格（9大模块、用户画像、业务流程图、数据设计） |
+| 📊 BRD - 商业需求文档 | [Word](docs/BRD-Business-Requirements-Document.docx) | 商业需求与市场分析 |
+| 📈 竞品分析报告 | [Word](docs/Competitive-Analysis-Report.docx) | 竞品功能对比与差异化分析 |
+| 🗺 产品路线图 | [Word](docs/Product-Roadmap.docx) | V1.0/V2.0 版本规划与迭代计划 |
 
 ### 设计文档（PlantUML）
 

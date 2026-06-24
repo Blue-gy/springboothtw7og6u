@@ -46,7 +46,6 @@ node_modules/
 ### Non-essential project files ###
 package.json
 package-lock.json
-README.md
 pom-war.xml
 
 ### Upload files (large binaries) ###

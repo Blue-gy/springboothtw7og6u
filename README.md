@@ -87,6 +87,7 @@
 | 📊 BRD - 商业需求文档 | [Word](docs/BRD-Business-Requirements-Document.docx) | 商业需求与市场分析 |
 | 📈 竞品分析报告 | [Word](docs/Competitive-Analysis-Report.docx) | 竞品功能对比与差异化分析 |
 | 🗺 产品路线图 | [Word](docs/Product-Roadmap.docx) | V1.0/V2.0 版本规划与迭代计划 |
+| 🎨 Figma 设计稿 | [链接](https://www.figma.com/design/nDFMbkknr4Y93vadg9gHhm/%E6%A0%A1%E5%9B%AD%E5%9C%BA%E5%9C%B0%E4%B8%8E%E8%AE%BE%E5%A4%87%E9%A2%84%E7%BA%A6?node-id=0-1&p=f&t=OEbX4Y1brVAzIlRC-0) \| [文档](docs/Figma-Design.md) | 用户端+管理后台核心页面 UI 原型 |
 
 ### 设计文档（PlantUML）
 
@@ -149,7 +150,7 @@ npm run serve
 │   ├── front/front/    # 用户端 Vue 源码
 │   └── admin/admin/    # 管理后台 Vue 源码
 ├── db/                 # 数据库 SQL 文件
-├── docs/               # 产品文档（PRD/BRD/竞品分析/路线图）
+├── docs/               # 产品文档（PRD/BRD/竞品分析/路线图/Figma设计）
 └── puml/               # PlantUML 设计图表（25+ 份）
 ```
 
